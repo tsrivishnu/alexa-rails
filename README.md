@@ -1,8 +1,23 @@
 # Alexa
-Short description and motivation.
+`alexa-rails` is a ruby gem which is a mountable rails engine that will add abilities to your Ruby on Rails application to handle Amazon alexa requests and responses.
 
 ## Usage
-How to use my plugin.
+
+### Request helpers
+
+Include the helpers provided by the gem into the controller you want to handle alexa requests.
+
+```ruby
+class ApplicationController < ActionController::Base
+  include Alexa::ContextHelper
+end
+```
+Access the alexa requet object
+
+```ruby
+alexa_request # returns Alexa::Request object
+```
+
 
 ## Installation
 Add this line to your application's Gemfile:
