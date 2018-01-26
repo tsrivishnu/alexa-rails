@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Alexa::Response - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-elicit_directives">#elicit_directives</a>
+    
+    <li ><a href="#method-i-elicit_slot-21">#elicit_slot!</a>
+    
+    <li ><a href="#method-i-end_session-3F">#end_session?</a>
+    
+    <li ><a href="#method-i-keep_listening-21">#keep_listening!</a>
+    
+    <li ><a href="#method-i-keep_listening-3F">#keep_listening?</a>
+    
+    <li ><a href="#method-i-partial_path">#partial_path</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Alexa::Response">
+  <h1 id="class-Alexa::Response" class="class">
+    class Alexa::Response
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-directives" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">directives</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-intent" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">intent</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(intent:, directives: [])</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">intent</span>,, <span class="ruby-identifier">directives</span><span class="ruby-operator">:</span> [])
+  <span class="ruby-ivar">@intent</span> = <span class="ruby-identifier">intent</span>
+  <span class="ruby-ivar">@directives</span> = <span class="ruby-identifier">directives</span>
+  <span class="ruby-ivar">@slots_to_not_render_elicitation</span> = []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-elicit_directives" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">elicit_directives</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="elicit_directives-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 59</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">elicit_directives</span>
+  <span class="ruby-keyword">return</span> [] <span class="ruby-keyword">if</span> <span class="ruby-identifier">directives</span>.<span class="ruby-identifier">empty?</span>
+  <span class="ruby-identifier">directives</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">directive</span><span class="ruby-operator">|</span> <span class="ruby-identifier">directive</span>[<span class="ruby-value">:type</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;Dialog.ElicitSlot&quot;</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-elicit_slot-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">elicit_slot!</span><span
+            class="method-args">(slot_to_elicit, skip_render: false)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Marks a slot for elicitation.</p>
+
+<p>Options:</p>
+
+<pre>- skip_render: Lets you skip the rendering of the elicited slot&#39;s view.
+               Helpful when you have the elication text already in the
+               response and don&#39;t wanna override it.</pre>
+          
+          
+
+          
+          <div class="method-source-code" id="elicit_slot-21-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">elicit_slot!</span>(<span class="ruby-identifier">slot_to_elicit</span>, <span class="ruby-identifier">skip_render</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>)
+  <span class="ruby-identifier">directives</span> <span class="ruby-operator">&lt;&lt;</span> {
+    <span class="ruby-identifier">type</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Dialog.ElicitSlot&quot;</span>,
+    <span class="ruby-identifier">slotToElicit</span><span class="ruby-operator">:</span> <span class="ruby-identifier">slot_to_elicit</span>
+  }
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">skip_render</span>
+    <span class="ruby-ivar">@slots_to_not_render_elicitation</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">slot_to_elicit</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-end_session-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">end_session?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="end_session-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 73</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">end_session?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">keep_listening?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">elicit_directives</span>.<span class="ruby-identifier">any?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keep_listening-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keep_listening!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="keep_listening-21-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 64</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keep_listening!</span>
+  <span class="ruby-ivar">@keep_listening</span> = <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">self</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-keep_listening-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">keep_listening?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="keep_listening-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 69</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">keep_listening?</span>
+  <span class="ruby-ivar">@keep_listening</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-partial_path" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">partial_path</span><span
+            class="method-args">(format: :ssml, filename: nil)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="partial_path-source">
+            <pre><span class="ruby-comment"># File lib/alexa/response.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">partial_path</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:ssml</span>, <span class="ruby-identifier">filename</span><span class="ruby-operator">:</span> <span class="ruby-keyword">nil</span>)
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">elicit_directives</span>.<span class="ruby-identifier">any?</span>
+    <span class="ruby-identifier">slot_to_elicit</span> = <span class="ruby-identifier">elicit_directives</span>.<span class="ruby-identifier">first</span>[<span class="ruby-value">:slotToElicit</span>]
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">template_path</span> = <span class="ruby-node">&quot;alexa/#{intent.context.locale}/intent_handlers/&quot;</span>         <span class="ruby-node">&quot;#{intent.class.name.demodulize.underscore}&quot;</span>
+
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">filename</span>.<span class="ruby-identifier">present?</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ssml</span>
+      <span class="ruby-node">&quot;#{template_path}/#{filename}.ssml.erb&quot;</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-node">&quot;#{template_path}/#{filename}.text.erb&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">slot_to_elicit</span>.<span class="ruby-identifier">present?</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-operator">!</span><span class="ruby-ivar">@slots_to_not_render_elicitation</span>.<span class="ruby-identifier">include?</span>(<span class="ruby-identifier">slot_to_elicit</span>)
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ssml</span>
+        <span class="ruby-node">&quot;#{template_path}/elicitations/#{slot_to_elicit.underscore}.ssml.erb&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-node">&quot;#{template_path}/elicitations/#{slot_to_elicit.underscore}.text.erb&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ssml</span>
+        <span class="ruby-node">&quot;#{template_path}/speech.ssml.erb&quot;</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-node">&quot;#{template_path}/display.text.erb&quot;</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

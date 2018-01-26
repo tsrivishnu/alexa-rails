@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Alexa::Slot - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
+</script>
+
+<script src="../js/jquery.js"></script>
+<script src="../js/darkfish.js"></script>
+
+<link href="../css/fonts.css" rel="stylesheet">
+<link href="../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../table_of_contents.html#pages">Pages</a>
+    <a href="../table_of_contents.html#classes">Classes</a>
+    <a href="../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-i-as_json">#as_json</a>
+    
+    <li ><a href="#method-i-bad_match-3F">#bad_match?</a>
+    
+    <li ><a href="#method-i-has_resolutions-3F">#has_resolutions?</a>
+    
+    <li ><a href="#method-i-matched-3F">#matched?</a>
+    
+    <li ><a href="#method-i-matched_id">#matched_id</a>
+    
+    <li ><a href="#method-i-matched_value">#matched_value</a>
+    
+    <li ><a href="#method-i-resolution">#resolution</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Alexa::Slot">
+  <h1 id="class-Alexa::Slot" class="class">
+    class Alexa::Slot
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-name" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">name</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+      <div id="attribute-i-value" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">value</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(attributes={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">attributes</span>={})
+  <span class="ruby-ivar">@name</span> = <span class="ruby-identifier">attributes</span>[<span class="ruby-string">&#39;name&#39;</span>]
+  <span class="ruby-ivar">@value</span> = <span class="ruby-identifier">attributes</span>[<span class="ruby-string">&#39;value&#39;</span>]
+  <span class="ruby-ivar">@resolutions</span> = <span class="ruby-identifier">attributes</span>[<span class="ruby-string">&#39;resolutions&#39;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-as_json" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">as_json</span><span
+            class="method-args">(options={})</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="as_json-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 42</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">as_json</span>(<span class="ruby-identifier">options</span>={})
+  <span class="ruby-identifier">h</span> = { <span class="ruby-identifier">name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">name</span> }
+  <span class="ruby-comment"># add other attributes only if they are present</span>
+  <span class="ruby-identifier">h</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">value</span><span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>) <span class="ruby-keyword">if</span> <span class="ruby-identifier">value</span>.<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">h</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">resolutions</span><span class="ruby-operator">:</span> <span class="ruby-ivar">@resolutions</span>) <span class="ruby-keyword">if</span> <span class="ruby-ivar">@resolutions</span>.<span class="ruby-identifier">present?</span>
+  <span class="ruby-identifier">h</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bad_match-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bad_match?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bad_match-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 28</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bad_match?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">has_resolutions?</span>
+  <span class="ruby-identifier">resolution</span>[<span class="ruby-string">&quot;status&quot;</span>][<span class="ruby-string">&quot;code&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;ER_SUCCESS_NO_MATCH&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_resolutions-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_resolutions?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_resolutions-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_resolutions?</span>
+  <span class="ruby-ivar">@resolutions</span>.<span class="ruby-identifier">present?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-matched-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matched?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="matched-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 23</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matched?</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">false</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">has_resolutions?</span>
+  <span class="ruby-identifier">resolution</span>[<span class="ruby-string">&quot;status&quot;</span>][<span class="ruby-string">&quot;code&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;ER_SUCCESS_MATCH&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-matched_id" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matched_id</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="matched_id-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 17</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matched_id</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">matched?</span>
+    <span class="ruby-identifier">resolution</span>[<span class="ruby-string">&quot;values&quot;</span>].<span class="ruby-identifier">first</span>[<span class="ruby-string">&quot;value&quot;</span>][<span class="ruby-string">&quot;id&quot;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-matched_value" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">matched_value</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="matched_value-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 11</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">matched_value</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">matched?</span>
+    <span class="ruby-identifier">resolution</span>[<span class="ruby-string">&quot;values&quot;</span>].<span class="ruby-identifier">first</span>[<span class="ruby-string">&quot;value&quot;</span>][<span class="ruby-string">&quot;name&quot;</span>]
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-resolution" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">resolution</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="resolution-source">
+            <pre><span class="ruby-comment"># File lib/alexa/slot.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">resolution</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-operator">!</span><span class="ruby-identifier">has_resolutions?</span>
+  <span class="ruby-ivar">@resolutions</span>[<span class="ruby-string">&quot;resolutionsPerAuthority&quot;</span>].<span class="ruby-identifier">first</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

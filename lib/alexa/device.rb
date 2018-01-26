@@ -1,3 +1,6 @@
+##
+# This class represents the +device+ part in the request.
+#
 module Alexa
   class Device
     attr_accessor :attributes
@@ -6,6 +9,8 @@ module Alexa
       @context = context
     end
 
+    ##
+    # Return device id
     def id
       attributes["deviceId"]
     end
@@ -18,6 +23,10 @@ module Alexa
       attributes["supportedInterfaces"].keys.include?("VideoApp")
     end
 
+    ##
+    # Return device location from amazon.
+    # Makes an API to amazon alexa's device location service and returns the
+    # location hash
     def location
       @_location ||= get_location
     end

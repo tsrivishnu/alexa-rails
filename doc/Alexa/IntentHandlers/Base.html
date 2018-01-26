@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Alexa::IntentHandlers::Base - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "../../";
+  var index_rel_prefix = "../../";
+</script>
+
+<script src="../../js/jquery.js"></script>
+<script src="../../js/darkfish.js"></script>
+
+<link href="../../css/fonts.css" rel="stylesheet">
+<link href="../../css/rdoc.css" rel="stylesheet">
+
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="../../index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="../../table_of_contents.html#pages">Pages</a>
+    <a href="../../table_of_contents.html#classes">Classes</a>
+    <a href="../../table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    <div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  
+  <p class="link"><a href="../../Object.html">Object</a>
+  
+</div>
+
+    
+    
+    <!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    
+    <li ><a href="#method-c-_required_slot_names">::_required_slot_names</a>
+    
+    <li ><a href="#method-c-inherited">::inherited</a>
+    
+    <li ><a href="#method-c-new">::new</a>
+    
+    <li ><a href="#method-c-required_slot_names">::required_slot_names</a>
+    
+    <li ><a href="#method-i-audio_supported-3F">#audio_supported?</a>
+    
+    <li ><a href="#method-i-bye_response">#bye_response</a>
+    
+    <li ><a href="#method-i-delegate_response">#delegate_response</a>
+    
+    <li ><a href="#method-i-dialog_complete-3F">#dialog_complete?</a>
+    
+    <li ><a href="#method-i-dialog_state">#dialog_state</a>
+    
+    <li ><a href="#method-i-empty_slots">#empty_slots</a>
+    
+    <li ><a href="#method-i-handle">#handle</a>
+    
+    <li ><a href="#method-i-has_all_slots-3F">#has_all_slots?</a>
+    
+    <li ><a href="#method-i-has_required_slots-3F">#has_required_slots?</a>
+    
+    <li ><a href="#method-i-has_unmatched_slots-3F">#has_unmatched_slots?</a>
+    
+    <li ><a href="#method-i-intent_confirmed-3F">#intent_confirmed?</a>
+    
+    <li ><a href="#method-i-intent_denied-3F">#intent_denied?</a>
+    
+    <li ><a href="#method-i-intent_usage_count">#intent_usage_count</a>
+    
+    <li ><a href="#method-i-non_empty_slots">#non_empty_slots</a>
+    
+    <li ><a href="#method-i-request">#request</a>
+    
+    <li ><a href="#method-i-required_slot_names">#required_slot_names</a>
+    
+    <li ><a href="#method-i-response">#response</a>
+    
+    <li ><a href="#method-i-say_welcome-21">#say_welcome!</a>
+    
+    <li ><a href="#method-i-say_welcome-3F">#say_welcome?</a>
+    
+    <li ><a href="#method-i-session">#session</a>
+    
+    <li ><a href="#method-i-slots">#slots</a>
+    
+    <li ><a href="#method-i-sorry_response">#sorry_response</a>
+    
+    <li ><a href="#method-i-unmatched_slots">#unmatched_slots</a>
+    
+    <li ><a href="#method-i-video_supported-3F">#video_supported?</a>
+    
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Alexa::IntentHandlers::Base">
+  <h1 id="class-Alexa::IntentHandlers::Base" class="class">
+    class Alexa::IntentHandlers::Base
+  </h1>
+
+  <section class="description">
+    
+  </section>
+
+  
+  
+  
+  <section id="5Buntitled-5D" class="documentation-section">
+    
+
+    
+
+    
+
+    
+    <section class="attribute-method-details" class="method-section">
+      <header>
+        <h3>Attributes</h3>
+      </header>
+
+      
+      <div id="attribute-i-context" class="method-detail">
+        <div class="method-heading attribute-method-heading">
+          <span class="method-name">context</span><span
+            class="attribute-access-type">[RW]</span>
+        </div>
+
+        <div class="method-description">
+        
+        
+        
+        </div>
+      </div>
+      
+    </section>
+    
+
+    
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+    
+      <div id="method-c-_required_slot_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">_required_slot_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Lets you set <code>required_slot_names</code> per subclass</p>
+
+<p>class IntentHandlers::NewIntent &lt; <a
+href="Base.html">IntentHandlers::Base</a></p>
+
+<pre class="ruby"><span class="ruby-identifier">required_slot_names</span> :<span class="ruby-constant">Function</span>, :<span class="ruby-constant">CareerLevel</span>
+</pre>
+
+<p>end</p>
+
+<p>handler = IntentHandlers::NewIntent.new handler.required_slot_names   #
+=&gt; [:Function, :CareerLevel]</p>
+          
+          
+
+          
+          <div class="method-source-code" id="_required_slot_names-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">_required_slot_names</span>
+  <span class="ruby-ivar">@_required_slot_names</span> <span class="ruby-operator">||=</span> []
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-inherited" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">inherited</span><span
+            class="method-args">(subclass)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="inherited-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 5</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">inherited</span>(<span class="ruby-identifier">subclass</span>)
+  <span class="ruby-identifier">subclass</span>.<span class="ruby-identifier">instance_variable_set</span>(<span class="ruby-string">&quot;@_required_slot_names&quot;</span>, <span class="ruby-identifier">_required_slot_names</span>.<span class="ruby-identifier">clone</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-new" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">new</span><span
+            class="method-args">(alexa_context)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 29</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">initialize</span>(<span class="ruby-identifier">alexa_context</span>)
+  <span class="ruby-ivar">@context</span> = <span class="ruby-identifier">alexa_context</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-c-required_slot_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">required_slot_names</span><span
+            class="method-args">(*names)</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="required_slot_names-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 22</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">required_slot_names</span>(<span class="ruby-operator">*</span><span class="ruby-identifier">names</span>)
+  <span class="ruby-ivar">@_required_slot_names</span> = <span class="ruby-identifier">names</span>.<span class="ruby-identifier">map</span>(<span class="ruby-operator">&amp;</span><span class="ruby-value">:to_s</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-handle" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">handle</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="handle-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 37</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">handle</span>
+  <span class="ruby-identifier">raise</span> <span class="ruby-string">&quot;Override .handle&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-intent_usage_count" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">intent_usage_count</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="intent_usage_count-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">intent_usage_count</span>
+  <span class="ruby-ivar">@_usage_count</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">context</span>.<span class="ruby-identifier">user</span>.<span class="ruby-identifier">usage_count_for</span>(<span class="ruby-identifier">intent_name</span><span class="ruby-operator">:</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">intent_name</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-request" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">request</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="request-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">request</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">request</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="response-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">response</span>
+  <span class="ruby-ivar">@_response</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">Response</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">intent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-say_welcome-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">say_welcome?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="say_welcome-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 49</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">say_welcome?</span>
+  <span class="ruby-ivar">@say_welcome</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-session" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">session</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="session-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 41</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">session</span>
+  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">session</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-slots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">slots</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="slots-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 53</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">slots</span>
+  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">slots</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+     <section id="protected-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Protected Instance Methods</h3>
+       </header>
+
+    
+      <div id="method-i-audio_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">audio_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="audio_supported-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 140</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">audio_supported?</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">device</span>.<span class="ruby-identifier">audio_supported?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-bye_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">bye_response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="bye_response-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 128</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">bye_response</span>
+  <span class="ruby-ivar">@_bye_response</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">Responses</span><span class="ruby-operator">::</span><span class="ruby-constant">Bye</span>.<span class="ruby-identifier">new</span>(<span class="ruby-identifier">intent</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-delegate_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">delegate_response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="delegate_response-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 124</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">delegate_response</span>
+  <span class="ruby-ivar">@_delegate_response</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">Responses</span><span class="ruby-operator">::</span><span class="ruby-constant">Delegate</span>.<span class="ruby-identifier">new</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dialog_complete-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dialog_complete?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dialog_complete-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 98</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dialog_complete?</span>
+  <span class="ruby-identifier">dialog_state</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;COMPLETED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-dialog_state" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">dialog_state</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="dialog_state-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 106</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">dialog_state</span>
+  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">dialog_state</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-empty_slots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">empty_slots</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="empty_slots-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 72</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">empty_slots</span>
+  <span class="ruby-ivar">@_empty_slots</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">slots</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">slot</span><span class="ruby-operator">|</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_all_slots-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_all_slots?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_all_slots-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 63</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_all_slots?</span>
+  <span class="ruby-identifier">empty_slots</span>.<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_required_slots-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_required_slots?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_required_slots-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 67</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_required_slots?</span>
+  <span class="ruby-identifier">non_empty_slot_names</span> = <span class="ruby-identifier">non_empty_slots</span>.<span class="ruby-identifier">map</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">s</span><span class="ruby-operator">|</span> <span class="ruby-identifier">s</span>.<span class="ruby-identifier">name</span> }
+  (<span class="ruby-identifier">required_slot_names</span> <span class="ruby-operator">-</span> <span class="ruby-identifier">non_empty_slot_names</span>).<span class="ruby-identifier">empty?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-has_unmatched_slots-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">has_unmatched_slots?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="has_unmatched_slots-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 102</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">has_unmatched_slots?</span>
+  <span class="ruby-identifier">unmatched_slots</span>.<span class="ruby-identifier">any?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-intent_confirmed-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">intent_confirmed?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="intent_confirmed-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 88</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">intent_confirmed?</span>
+  <span class="ruby-comment"># TODO: Move this to Alexa::Request</span>
+  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;request&quot;</span>][<span class="ruby-string">&quot;intent&quot;</span>][<span class="ruby-string">&quot;confirmationStatus&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;CONFIRMED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-intent_denied-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">intent_denied?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="intent_denied-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 93</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">intent_denied?</span>
+  <span class="ruby-comment"># TODO: Move this to Alexa::Request</span>
+  <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;request&quot;</span>][<span class="ruby-string">&quot;intent&quot;</span>][<span class="ruby-string">&quot;confirmationStatus&quot;</span>] <span class="ruby-operator">==</span> <span class="ruby-string">&quot;DENIED&quot;</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-non_empty_slots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">non_empty_slots</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="non_empty_slots-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 76</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">non_empty_slots</span>
+  <span class="ruby-ivar">@_non_empty_slots</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">slots</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">name</span>, <span class="ruby-identifier">slot</span><span class="ruby-operator">|</span> <span class="ruby-operator">!</span><span class="ruby-identifier">slot</span>.<span class="ruby-identifier">value</span>.<span class="ruby-identifier">nil?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-required_slot_names" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">required_slot_names</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="required_slot_names-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 84</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">required_slot_names</span>
+  <span class="ruby-keyword">self</span>.<span class="ruby-identifier">class</span>.<span class="ruby-identifier">_required_slot_names</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-say_welcome-21" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">say_welcome!</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="say_welcome-21-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 132</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">say_welcome!</span>
+  <span class="ruby-ivar">@say_welcome</span> = <span class="ruby-keyword">true</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-sorry_response" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">sorry_response</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="sorry_response-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 110</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">sorry_response</span>
+  {
+    <span class="ruby-string">&quot;version&quot;</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;1.0&quot;</span>,
+    <span class="ruby-identifier">sessionAttributes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">session</span>,
+    <span class="ruby-string">&quot;response&quot;</span><span class="ruby-operator">:</span> {
+      <span class="ruby-string">&quot;outputSpeech&quot;</span><span class="ruby-operator">:</span> {
+        <span class="ruby-string">&quot;type&quot;</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;PlainText&quot;</span>,
+        <span class="ruby-string">&quot;ssml&quot;</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;Sorry! Looks like I couldn&#39;t process your request, may be try something else?&quot;</span>
+      },
+      <span class="ruby-string">&quot;shouldEndSession&quot;</span><span class="ruby-operator">:</span> <span class="ruby-keyword">false</span>
+    }
+  }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-unmatched_slots" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">unmatched_slots</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="unmatched_slots-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 80</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">unmatched_slots</span>
+  <span class="ruby-ivar">@_unmatched_slots</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">slots</span>.<span class="ruby-identifier">select</span> { <span class="ruby-operator">|</span><span class="ruby-identifier">_</span>, <span class="ruby-identifier">slot</span><span class="ruby-operator">|</span> <span class="ruby-identifier">slot</span>.<span class="ruby-identifier">bad_match?</span> }
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-video_supported-3F" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">video_supported?</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          
+          
+          
+
+          
+          <div class="method-source-code" id="video_supported-3F-source">
+            <pre><span class="ruby-comment"># File lib/alexa/intent_handlers/base.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">video_supported?</span>
+  <span class="ruby-identifier">context</span>.<span class="ruby-identifier">device</span>.<span class="ruby-identifier">video_supported?</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+    </section>
+  
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="http://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
