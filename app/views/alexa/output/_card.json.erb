@@ -4,6 +4,6 @@
     ) %>
 {
   "type": "<%= (content_for(:card_type) || "Simple").strip %>",
-  "title":  "<%= (content_for(:card_title) || "Experteer").strip %>",
+  "title":  "<%= (content_for(:card_title) || "Card Title").strip %>",
   "content": <%= raw content.strip.to_json %>
 }
