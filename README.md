@@ -3,6 +3,17 @@
 
 ## Usage
 
+### Configuration
+
+Set alexa skill IDs in environment config (ex: config/environments/development.rb).
+
+
+```ruby
+  config.x.alexa.skill_ids = [
+    "amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
+  ]
+```
+
 ### Request helpers
 
 Include the helpers provided by the gem into the controller you want to handle alexa requests.
@@ -10,6 +21,7 @@ Include the helpers provided by the gem into the controller you want to handle a
 ```ruby
 class ApplicationController < ActionController::Base
   include Alexa::ContextHelper
+  include Alexa::RenderHelper
 end
 ```
 Access the alexa requet object
