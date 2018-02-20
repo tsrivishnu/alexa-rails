@@ -1,7 +1,24 @@
 # Alexa
 `alexa-rails` is a ruby gem which is a mountable rails engine that will add abilities to your Ruby on Rails application to handle Amazon alexa requests and responses.
 
-## Usage
+## Intallation/Usage
+
+Do the usual by adding the following to your Gemfile:
+
+```ruby
+gem install alexa-rails
+```
+
+### Migrations
+
+The gem provides migrations that are needed to use few features of the gem.
+For example: Saving or reading the user's skill usage count.
+To generate the migrations, run the following
+
+```ruby
+$ rails generate alexa:migrations
+$ rake db:migrate
+```
 
 ### Configuration
 
