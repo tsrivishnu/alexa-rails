@@ -2,7 +2,6 @@ class CreateAlexaUsers < ActiveRecord::Migration[4.2]
   def up
     create_table :alexa_users do |t|
       t.string :amazon_id
-      t.references :account, index: true, foreign_key: true
     end
     add_index :alexa_users, :amazon_id
   end

@@ -1,7 +1,6 @@
 module Alexa
   class User < ApplicationRecord
     self.table_name = 'alexa_users'
-    belongs_to :account
     has_many :usages, class_name: "Alexa::Usage", foreign_key: "alexa_user_id"
 
     def update_usage(intent_name:)
