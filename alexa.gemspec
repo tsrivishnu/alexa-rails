@@ -5,7 +5,7 @@ require "alexa/version"
 
 # Describe your gem and declare its dependencies:
 Gem::Specification.new do |s|
-  s.name        = "alexa"
+  s.name        = "alexa-rails"
   s.version     = Alexa::VERSION
   s.authors     = ["Sri Vishnu Totakura"]
   s.email       = ["srivishnu@totakura.in"]
