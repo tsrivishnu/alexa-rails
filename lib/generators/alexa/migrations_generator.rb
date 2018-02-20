@@ -14,8 +14,8 @@ module Alexa
       end
 
       def copy_migrations
-        migration_template "create_alexa_users.rb", "db/migrate/create_alexa_users_n.rb"
-        migration_template "create_alexa_usages.rb", "db/migrate/create_alexa_usages_n.rb"
+        migration_template "create_alexa_users.rb", "db/migrate/create_alexa_users.rb"
+        migration_template "create_alexa_usages.rb", "db/migrate/create_alexa_usages.rb"
       end
     end
   end
