@@ -26,44 +26,86 @@ Set alexa skill IDs in environment config (ex: config/environments/development.r
 
 
 ```ruby
+  # config/environments/development.rb
+
   config.x.alexa.skill_ids = [
     "amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
   ]
 ```
 
-### Request helpers
-
-Include the helpers provided by the gem into the controller you want to handle alexa requests.
+Mount the engine for routes handling in your routes
 
 ```ruby
-class ApplicationController < ActionController::Base
-  include Alexa::ContextHelper
-  include Alexa::RenderHelper
+  # config/routes.rb
+
+  Rails.application.routes.draw do
+    ...
+    mount Alexa::Engine, at: "/alexa"
+  end
+```
+
+### Request handling
+
+After the above steps, your application is ready to accept requests from Alexa
+servers at `/alexa/intent_handlers`.
+You will have to provide that in the HTTPS endpoint URL for your skill.
+
+To handle an intent, you will have to create an intent handler class.
+For example, if your intent is named `PlaceOrder`, you will have to create
+the following file under you `app/lib/intent_handlers` directory.
+
+```ruby
+module Alexa
+  module IntentHandlers
+    class PlaceOrder < Alexa::IntentHandlers::Base
+      def handle
+        ...
+      end
+    end
+  end
 end
 ```
-Access the alexa requet object
+
+All intent handlers should contain a `#handle` method that has required logic
+as to how to handle the intent request. For example, adding session variables,
+setting response to elicit slots, etc.
+
+Adding session variable:
 
 ```ruby
-alexa_request # returns Alexa::Request object
+session.merge!(my_var: value)
+```
+
+#### Slot elicitations
+
+Depending on your conditions, you can set the reponse to elicit a specific
+slot and the respecitve views are used.
+
+```ruby
+response.elicit_slot!(:SlotName)
 ```
 
 ### Views
 
-We follow convention to write views for intent responses.
+The content for speech and display cards is not set in the intent handler
+classes.
+We follow rails convention and expect all response content for intents to be
+in their respective view files.
+
 Also, the views are context locale dependant.
 
 Given an intent named `PlaceOrder`, you view files would be
 
   * SSML: `views/alexa/en_us/intent_handlers/place_order/speech.ssml.erb`
-  * Card: `views/alexa/en_us/intent_handlers/place_order/display.txt.erb`
+  * Card: `views/alexa/en_us/intent_handlers/place_order/display.text.erb`
 
 In case of slot elicitations, follow a similar convention but make sure you
-name the `ssml` and `txt` files with the same name as the slot that is being
+name the `ssml` and `text` files with the same name as the slot that is being
 elicited. For example, in the `PlaceOrder` intent, the elicatation for `Address`
 slot would have the following views
 
   * SSML: `views/alexa/en_us/intent_handlers/place_order/elicitations/address.ssml.erb`
-  * Card: `views/alexa/en_us/intent_handlers/place_order/elicitations/address.txt.erb`
+  * Card: `views/alexa/en_us/intent_handlers/place_order/elicitations/address.text.erb`
 
 #### SSML
 
@@ -86,7 +128,7 @@ What is your address?
 ##### Type & Title
 
 By default, the card type is set to `Simple`.
-To change the card type and title, use the `content_for` blocks in the `txt`
+To change the card type and title, use the `content_for` blocks in the `text`
 view file for the response as follows:
 
 ```erb

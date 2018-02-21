@@ -1,5 +1,5 @@
 <% content = render(
-      template: response.partial_path(format: :text),
+      file: response.partial_path(format: :text),
       locals: { response: response }
     ) %>
 {
