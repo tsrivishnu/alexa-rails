@@ -1,5 +1,5 @@
 module Alexa
-  class User < ApplicationRecord
+  class User < ActiveRecord::Base
     self.table_name = 'alexa_users'
     has_many :usages, class_name: "Alexa::Usage", foreign_key: "alexa_user_id"
 

@@ -9,6 +9,8 @@ require 'alexa/version'
 require 'alexa/responses/bye'
 require 'alexa/responses/delegate'
 require 'alexa/intent_handlers/base'
+require_relative '../app/models/alexa/user'
+require_relative '../app/models/alexa/usage'
 
 
 module Alexa

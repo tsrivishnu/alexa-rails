@@ -1,5 +1,5 @@
 module Alexa
-  class Usage < ApplicationRecord
+  class Usage < ActiveRecord::Base
     self.table_name = 'alexa_usages'
     belongs_to :alexa_user
 
