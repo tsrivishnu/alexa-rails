@@ -1,6 +1,6 @@
 module Alexa
   module Responses
-    module PermissionRequests
+    module PermissionConsents
       class DeviceAddress < Alexa::Response
         attr_accessor :intent, :directives
 
@@ -12,10 +12,10 @@ module Alexa
           if format == :ssml
             "alexa/#{intent.context.locale}/intent_handlers/"\
               "#{intent.class.name.demodulize.underscore}"\
-              "/permission_requests/"\
+              "/permission_consents/"\
               "device_address.ssml.erb"
           else
-            "alexa/permission_requests/device_address.text.erb"
+            "alexa/permission_consents/device_address.text.erb"
           end
         end
 

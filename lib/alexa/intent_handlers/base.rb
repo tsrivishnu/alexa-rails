@@ -58,8 +58,8 @@ module Alexa
         @_usage_count ||= context.user.usage_count_for(intent_name: request.intent_name)
       end
 
-      def show_device_address_permission_request_card?
-        @_show_device_address_permission_request_card == true
+      def show_device_address_permission_consent_card?
+        @_show_device_address_permission_consent_card == true
       end
 
 
@@ -126,12 +126,12 @@ module Alexa
         }
       end
 
-      def show_device_address_permission_request_card!
-        @_show_device_address_permission_request_card = true
+      def show_device_address_permission_consent_card!
+        @_show_device_address_permission_consent_card = true
       end
 
-      def ask_address_permission_response
-        @_ask_address_permission_response ||= Alexa::Responses::PermissionRequests::DeviceAddress.new(intent: self)
+      def device_address_permission_consent_response
+        @_device_address_permission_consent_response ||= Alexa::Responses::PermissionConsents::DeviceAddress.new(intent: self)
       end
 
       def delegate_response

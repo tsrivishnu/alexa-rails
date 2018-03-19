@@ -40,8 +40,8 @@ module Alexa
           "#{template_path}/#{filename}.text.erb"
         end
       else
-        if intent.show_device_address_permission_request_card? && format == :text
-          return Alexa::Responses::PermissionRequests::DeviceAddress.new(
+        if intent.show_device_address_permission_consent_card? && format == :text
+          return Alexa::Responses::PermissionConsents::DeviceAddress.new(
             intent: intent
           ).partial_path(format: :text)
         end
