@@ -141,8 +141,6 @@ view file for the response as follows:
 
 ```
 
-
-
 ## Installation
 Add this line to your application's Gemfile:
 
