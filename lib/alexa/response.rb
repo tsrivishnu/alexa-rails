@@ -40,6 +40,12 @@ module Alexa
           "#{template_path}/#{filename}.text.erb"
         end
       else
+        if intent.show_device_address_permission_request_card? && format == :text
+          return Alexa::Responses::PermissionRequests::DeviceAddress.new(
+            intent: intent
+          ).partial_path(format: :text)
+        end
+
         if slot_to_elicit.present? && !@slots_to_not_render_elicitation.include?(slot_to_elicit)
           if format == :ssml
             "#{template_path}/elicitations/#{slot_to_elicit.underscore}.ssml.erb"

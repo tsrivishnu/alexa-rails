@@ -2,8 +2,12 @@
       file: response.partial_path(format: :text),
       locals: { response: response }
     ) %>
-{
-  "type": "<%= (content_for(:card_type) || "Simple").strip %>",
-  "title":  "<%= (content_for(:card_title) || "Card Title").strip %>",
-  "content": <%= raw content.strip.to_json %>
-}
+<% card_type = (content_for(:card_type) || "Simple").strip %>
+
+<%= raw render(
+      partial: "alexa/output/cards/#{card_type.downcase}",
+      locals: {
+        response: response,
+        content: content
+      }
+    ) %>

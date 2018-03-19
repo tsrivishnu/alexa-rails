@@ -1,0 +1,5 @@
+{
+  "type": "Simple",
+  "title":  "<%= (content_for(:card_title) || "Card Title").strip %>",
+  "content": <%= raw content.strip.to_json %>
+}
