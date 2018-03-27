@@ -28,8 +28,13 @@ Set alexa skill IDs in environment config (ex: config/environments/development.r
 ```ruby
   # config/environments/development.rb
 
+  # For request validation
   config.x.alexa.skill_ids = [
     "amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
+  ]
+
+  config.x.alexa.default_card_title = [
+    "Alexa rails"
   ]
 ```
 

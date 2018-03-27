@@ -1,5 +1,5 @@
 {
   "type": "Simple",
-  "title":  "<%= (content_for(:card_title) || "Card Title").strip %>",
+  "title":  "<%= (content_for(:card_title) || Rails.configuration.x.alexa.default_card_title || "Card Title").strip %>",
   "content": <%= raw content.strip.to_json %>
 }
