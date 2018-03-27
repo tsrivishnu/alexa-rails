@@ -10,8 +10,11 @@ Gem::Specification.new do |s|
   s.authors     = ["Sri Vishnu Totakura"]
   s.email       = ["srivishnu@totakura.in"]
   s.homepage    = "https://github.com/tsrivishnu/alexa-rails"
-  s.summary     = "Summary of Alexa."
-  s.description = "Description of Alexa."
+  s.summary     = "Serve Alexa skills with your rails app as backend"
+  s.description = "The gem adds additional capabilities to your rails app to "\
+    "serve as a backend for your Alexa skill by providing routing, "\
+    "controllers, views and structure to easily develop and maintain "\
+    "skills' backend"
   s.license     = "MIT"
 
   s.files = Dir["{app,config,db,lib}/**/*", "MIT-LICENSE", "Rakefile", "README.md"]
