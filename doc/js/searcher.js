@@ -172,7 +172,6 @@ Searcher.prototype = new function() {
     result.path = info[2];
     result.params = info[3];
     result.snippet = info[4];
-    result.badge = info[6];
     return result;
   }
 

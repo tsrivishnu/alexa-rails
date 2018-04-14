@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
-  var index_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
@@ -26,7 +25,17 @@
 <h2 id="pages">Pages</h2>
 <ul>
   <li class="file">
+    <a href="CHANGELOG_md.html">CHANGELOG</a>
+
+    <ul>
+      <li><a href="CHANGELOG_md.html#label-Version+0.1.2">Version 0.1.2</a>
+    </ul>
+  </li>
+    <li class="file">
     <a href="Gemfile.html">Gemfile</a>
+  </li>
+    <li class="file">
+    <a href="Gemfile_lock.html">Gemfile.lock</a>
   </li>
     <li class="file">
     <a href="MIT-LICENSE.html">MIT-LICENSE</a>
@@ -35,8 +44,20 @@
     <a href="README_md.html">README</a>
 
     <ul>
-      <li><a href="README_md.html#label-Alexa">Alexa</a>
-      <li><a href="README_md.html#label-Usage">Usage</a>
+      <li><a href="README_md.html#label-Alexa-rails">Alexa-rails</a>
+      <li><a href="README_md.html#label-Intallation-2FUsage">Intallation/Usage</a>
+      <li><a href="README_md.html#label-Migrations">Migrations</a>
+      <li><a href="README_md.html#label-Configuration">Configuration</a>
+      <li><a href="README_md.html#label-Request+handling">Request handling</a>
+      <li><a href="README_md.html#label-Adding+session+variable-3A">Adding session variable:</a>
+      <li><a href="README_md.html#label-Slot+elicitations">Slot elicitations</a>
+      <li><a href="README_md.html#label-Delete+response">Delete response</a>
+      <li><a href="README_md.html#label-Views">Views</a>
+      <li><a href="README_md.html#label-SSML">SSML</a>
+      <li><a href="README_md.html#label-Re-prompts">Re-prompts</a>
+      <li><a href="README_md.html#label-Cards">Cards</a>
+      <li><a href="README_md.html#label-Type+-26+Title">Type &amp; Title</a>
+      <li><a href="README_md.html#label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">Handling Amazon&#39;s Built-in Intents / Other request types</a>
       <li><a href="README_md.html#label-Installation">Installation</a>
       <li><a href="README_md.html#label-Contributing">Contributing</a>
       <li><a href="README_md.html#label-License">License</a>
@@ -89,6 +110,9 @@
     <a href="test/dummy/config_ru.html">config.ru</a>
   </li>
     <li class="file">
+    <a href="test/dummy/log/development_log.html">development.log</a>
+  </li>
+    <li class="file">
     <a href="test/dummy/package_json.html">package.json</a>
   </li>
     <li class="file">
@@ -126,6 +150,9 @@
   <li class="module">
     <a href="Alexa.html">Alexa</a>
   </li>
+  <li class="class">
+    <a href="Alexa/ApplicationController.html">Alexa::ApplicationController</a>
+  </li>
   <li class="module">
     <a href="Alexa/ApplicationHelper.html">Alexa::ApplicationHelper</a>
   </li>
@@ -151,10 +178,22 @@
     <a href="Alexa/Engine.html">Alexa::Engine</a>
   </li>
   <li class="module">
+    <a href="Alexa/Generators.html">Alexa::Generators</a>
+  </li>
+  <li class="class">
+    <a href="Alexa/Generators/MigrationsGenerator.html">Alexa::Generators::MigrationsGenerator</a>
+  </li>
+  <li class="module">
     <a href="Alexa/IntentHandlers.html">Alexa::IntentHandlers</a>
   </li>
   <li class="class">
     <a href="Alexa/IntentHandlers/Base.html">Alexa::IntentHandlers::Base</a>
+  </li>
+  <li class="class">
+    <a href="Alexa/IntentHandlersController.html">Alexa::IntentHandlersController</a>
+  </li>
+  <li class="module">
+    <a href="Alexa/RenderHelper.html">Alexa::RenderHelper</a>
   </li>
   <li class="class">
     <a href="Alexa/Request.html">Alexa::Request</a>
@@ -171,6 +210,12 @@
   <li class="class">
     <a href="Alexa/Responses/Delegate.html">Alexa::Responses::Delegate</a>
   </li>
+  <li class="module">
+    <a href="Alexa/Responses/PermissionConsents.html">Alexa::Responses::PermissionConsents</a>
+  </li>
+  <li class="class">
+    <a href="Alexa/Responses/PermissionConsents/DeviceAddress.html">Alexa::Responses::PermissionConsents::DeviceAddress</a>
+  </li>
   <li class="class">
     <a href="Alexa/Session.html">Alexa::Session</a>
   </li>
@@ -179,6 +224,12 @@
   </li>
   <li class="class">
     <a href="Alexa/Test.html">Alexa::Test</a>
+  </li>
+  <li class="class">
+    <a href="Alexa/Usage.html">Alexa::Usage</a>
+  </li>
+  <li class="class">
+    <a href="Alexa/User.html">Alexa::User</a>
   </li>
   <li class="module">
     <a href="ApplicationCable.html">ApplicationCable</a>
@@ -203,6 +254,12 @@
   </li>
   <li class="class">
     <a href="ApplicationRecord.html">ApplicationRecord</a>
+  </li>
+  <li class="class">
+    <a href="CreateAlexaUsages.html">CreateAlexaUsages</a>
+  </li>
+  <li class="class">
+    <a href="CreateAlexaUsers.html">CreateAlexaUsers</a>
   </li>
   <li class="module">
     <a href="Dummy.html">Dummy</a>
@@ -268,6 +325,11 @@
     <span class="container">Alexa::Responses::Bye</span>
 
   <li class="method">
+    <a href="Alexa/Responses/PermissionConsents/DeviceAddress.html#method-c-new">::new</a>
+    &mdash;
+    <span class="container">Alexa::Responses::PermissionConsents::DeviceAddress</span>
+
+  <li class="method">
     <a href="Alexa/Session.html#method-c-new">::new</a>
     &mdash;
     <span class="container">Alexa::Session</span>
@@ -276,6 +338,11 @@
     <a href="Alexa/Slot.html#method-c-new">::new</a>
     &mdash;
     <span class="container">Alexa::Slot</span>
+
+  <li class="method">
+    <a href="Alexa/Generators/MigrationsGenerator.html#method-c-next_migration_number">::next_migration_number</a>
+    &mdash;
+    <span class="container">Alexa::Generators::MigrationsGenerator</span>
 
   <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-c-required_slot_names">::required_slot_names</a>
@@ -358,9 +425,24 @@
     <span class="container">Alexa::Request</span>
 
   <li class="method">
+    <a href="Alexa/IntentHandlersController.html#method-i-context">#context</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlersController</span>
+
+  <li class="method">
     <a href="Alexa/ContextHelper.html#method-i-context_alexa_user">#context_alexa_user</a>
     &mdash;
     <span class="container">Alexa::ContextHelper</span>
+
+  <li class="method">
+    <a href="Alexa/Generators/MigrationsGenerator.html#method-i-copy_migrations">#copy_migrations</a>
+    &mdash;
+    <span class="container">Alexa::Generators::MigrationsGenerator</span>
+
+  <li class="method">
+    <a href="Alexa/IntentHandlersController.html#method-i-create">#create</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlersController</span>
 
   <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-delegate_response">#delegate_response</a>
@@ -371,6 +453,11 @@
     <a href="Alexa/Context.html#method-i-device">#device</a>
     &mdash;
     <span class="container">Alexa::Context</span>
+
+  <li class="method">
+    <a href="Alexa/IntentHandlers/Base.html#method-i-device_address_permission_consent_response">#device_address_permission_consent_response</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlers::Base</span>
 
   <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-dialog_complete-3F">#dialog_complete?</a>
@@ -386,6 +473,16 @@
     <a href="Alexa/Request.html#method-i-dialog_state">#dialog_state</a>
     &mdash;
     <span class="container">Alexa::Request</span>
+
+  <li class="method">
+    <a href="CreateAlexaUsages.html#method-i-down">#down</a>
+    &mdash;
+    <span class="container">CreateAlexaUsages</span>
+
+  <li class="method">
+    <a href="CreateAlexaUsers.html#method-i-down">#down</a>
+    &mdash;
+    <span class="container">CreateAlexaUsers</span>
 
   <li class="method">
     <a href="Alexa/Response.html#method-i-elicit_directives">#elicit_directives</a>
@@ -418,9 +515,9 @@
     <span class="container">Alexa::Responses::Bye</span>
 
   <li class="method">
-    <a href="Alexa/Device.html#method-i-geocode">#geocode</a>
+    <a href="Alexa/Responses/PermissionConsents/DeviceAddress.html#method-i-end_session-3F">#end_session?</a>
     &mdash;
-    <span class="container">Alexa::Device</span>
+    <span class="container">Alexa::Responses::PermissionConsents::DeviceAddress</span>
 
   <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-handle">#handle</a>
@@ -458,9 +555,19 @@
     <span class="container">Alexa::Device</span>
 
   <li class="method">
+    <a href="Alexa/Usage.html#method-i-increment_count-21">#increment_count!</a>
+    &mdash;
+    <span class="container">Alexa::Usage</span>
+
+  <li class="method">
     <a href="Alexa/Session.html#method-i-increment_elicitation_count-21">#increment_elicitation_count!</a>
     &mdash;
     <span class="container">Alexa::Session</span>
+
+  <li class="method">
+    <a href="Alexa/IntentHandlersController.html#method-i-intent">#intent</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlersController</span>
 
   <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-intent_confirmed-3F">#intent_confirmed?</a>
@@ -553,6 +660,11 @@
     <span class="container">Alexa::Responses::Bye</span>
 
   <li class="method">
+    <a href="Alexa/Responses/PermissionConsents/DeviceAddress.html#method-i-partial_path">#partial_path</a>
+    &mdash;
+    <span class="container">Alexa::Responses::PermissionConsents::DeviceAddress</span>
+
+  <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-request">#request</a>
     &mdash;
     <span class="container">Alexa::IntentHandlers::Base</span>
@@ -566,6 +678,11 @@
     <a href="Alexa/Slot.html#method-i-resolution">#resolution</a>
     &mdash;
     <span class="container">Alexa::Slot</span>
+
+  <li class="method">
+    <a href="Alexa/RenderHelper.html#method-i-respond_for_alexa_with">#respond_for_alexa_with</a>
+    &mdash;
+    <span class="container">Alexa::RenderHelper</span>
 
   <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-response">#response</a>
@@ -603,6 +720,21 @@
     <span class="container">Alexa::Request</span>
 
   <li class="method">
+    <a href="Alexa/IntentHandlers/Base.html#method-i-show_device_address_permission_consent_card-21">#show_device_address_permission_consent_card!</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlers::Base</span>
+
+  <li class="method">
+    <a href="Alexa/IntentHandlers/Base.html#method-i-show_device_address_permission_consent_card-3F">#show_device_address_permission_consent_card?</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlers::Base</span>
+
+  <li class="method">
+    <a href="Alexa/IntentHandlersController.html#method-i-slots">#slots</a>
+    &mdash;
+    <span class="container">Alexa::IntentHandlersController</span>
+
+  <li class="method">
     <a href="Alexa/IntentHandlers/Base.html#method-i-slots">#slots</a>
     &mdash;
     <span class="container">Alexa::IntentHandlers::Base</span>
@@ -631,6 +763,26 @@
     <a href="Alexa/IntentHandlers/Base.html#method-i-unmatched_slots">#unmatched_slots</a>
     &mdash;
     <span class="container">Alexa::IntentHandlers::Base</span>
+
+  <li class="method">
+    <a href="CreateAlexaUsages.html#method-i-up">#up</a>
+    &mdash;
+    <span class="container">CreateAlexaUsages</span>
+
+  <li class="method">
+    <a href="CreateAlexaUsers.html#method-i-up">#up</a>
+    &mdash;
+    <span class="container">CreateAlexaUsers</span>
+
+  <li class="method">
+    <a href="Alexa/User.html#method-i-update_usage">#update_usage</a>
+    &mdash;
+    <span class="container">Alexa::User</span>
+
+  <li class="method">
+    <a href="Alexa/User.html#method-i-usage_count_for">#usage_count_for</a>
+    &mdash;
+    <span class="container">Alexa::User</span>
 
   <li class="method">
     <a href="Alexa/Context.html#method-i-user">#user</a>
@@ -667,7 +819,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 

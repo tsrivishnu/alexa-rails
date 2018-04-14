@@ -8,7 +8,6 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "./";
-  var index_rel_prefix = "./";
 </script>
 
 <script src="./js/jquery.js"></script>
@@ -56,8 +55,20 @@
   <h3>Table of Contents</h3>
 
   <ul class="link-list" role="directory">
-    <li><a href="#label-Alexa">Alexa</a>
-    <li><a href="#label-Usage">Usage</a>
+    <li><a href="#label-Alexa-rails">Alexa-rails</a>
+    <li><a href="#label-Intallation-2FUsage">Intallation/Usage</a>
+    <li><a href="#label-Migrations">Migrations</a>
+    <li><a href="#label-Configuration">Configuration</a>
+    <li><a href="#label-Request+handling">Request handling</a>
+    <li><a href="#label-Adding+session+variable-3A">Adding session variable:</a>
+    <li><a href="#label-Slot+elicitations">Slot elicitations</a>
+    <li><a href="#label-Delete+response">Delete response</a>
+    <li><a href="#label-Views">Views</a>
+    <li><a href="#label-SSML">SSML</a>
+    <li><a href="#label-Re-prompts">Re-prompts</a>
+    <li><a href="#label-Cards">Cards</a>
+    <li><a href="#label-Type+-26+Title">Type &amp; Title</a>
+    <li><a href="#label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">Handling Amazon&#39;s Built-in Intents / Other request types</a>
     <li><a href="#label-Installation">Installation</a>
     <li><a href="#label-Contributing">Contributing</a>
     <li><a href="#label-License">License</a>
@@ -71,7 +82,11 @@
 
   <ul class="link-list">
   
+    <li><a href="./CHANGELOG_md.html">CHANGELOG</a>
+  
     <li><a href="./Gemfile.html">Gemfile</a>
+  
+    <li><a href="./Gemfile_lock.html">Gemfile.lock</a>
   
     <li><a href="./MIT-LICENSE.html">MIT-LICENSE</a>
   
@@ -101,6 +116,8 @@
   
     <li><a href="./test/dummy/config_ru.html">config.ru</a>
   
+    <li><a href="./test/dummy/log/development_log.html">development.log</a>
+  
     <li><a href="./test/dummy/package_json.html">package.json</a>
   
     <li><a href="./test/dummy/public/404_html.html">404.html</a>
@@ -123,13 +140,198 @@
 
 <main role="main" aria-label="Page README.md">
 
-<h1 id="label-Alexa"><a href="Alexa.html">Alexa</a><span><a href="#label-Alexa">&para;</a> <a href="#top">&uarr;</a></span></h1>
+<h1 id="label-Alexa-rails">Alexa-rails<span><a href="#label-Alexa-rails">&para;</a> <a href="#top">&uarr;</a></span></h1>
 
-<p>Short description and motivation.</p>
+<p><code>alexa-rails</code> is a ruby gem which is a mountable rails engine
+that will add abilities to your Ruby on Rails application to handle Amazon
+alexa requests and responses.</p>
 
-<h2 id="label-Usage">Usage<span><a href="#label-Usage">&para;</a> <a href="#top">&uarr;</a></span></h2>
+<h2 id="label-Intallation-2FUsage">Intallation/Usage<span><a href="#label-Intallation-2FUsage">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
-<p>How to use my plugin.</p>
+<p>Do the usual by adding the following to your Gemfile:</p>
+
+<pre class="ruby"><span class="ruby-identifier">gem</span> <span class="ruby-identifier">install</span> <span class="ruby-identifier">alexa</span><span class="ruby-operator">-</span><span class="ruby-identifier">rails</span>
+</pre>
+
+<h3 id="label-Migrations">Migrations<span><a href="#label-Migrations">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The gem provides migrations that are needed to use few features of the gem.
+For example: Saving or reading the user&#39;s skill usage count. To
+generate the migrations, run the following</p>
+
+<pre class="ruby">$ <span class="ruby-identifier">rails</span> <span class="ruby-identifier">generate</span> <span class="ruby-identifier">alexa</span><span class="ruby-operator">:</span><span class="ruby-identifier">migrations</span>
+$ <span class="ruby-identifier">rake</span> <span class="ruby-identifier">db</span><span class="ruby-operator">:</span><span class="ruby-identifier">migrate</span>
+</pre>
+
+<h3 id="label-Configuration">Configuration<span><a href="#label-Configuration">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>Set alexa skill IDs in environment config (ex:
+config/environments/development.rb).</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/environments/development.rb</span>
+
+  <span class="ruby-comment"># For request validation</span>
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">alexa</span>.<span class="ruby-identifier">skill_ids</span> = [
+    <span class="ruby-string">&quot;amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx&quot;</span>
+  ]
+
+  <span class="ruby-identifier">config</span>.<span class="ruby-identifier">x</span>.<span class="ruby-identifier">alexa</span>.<span class="ruby-identifier">default_card_title</span> = <span class="ruby-string">&quot;Alexa rails&quot;</span>
+</pre>
+
+<p>Mount the engine for routes handling in your routes</p>
+
+<pre class="ruby"><span class="ruby-comment"># config/routes.rb</span>
+
+  <span class="ruby-constant">Rails</span>.<span class="ruby-identifier">application</span>.<span class="ruby-identifier">routes</span>.<span class="ruby-identifier">draw</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-operator">...</span>
+    <span class="ruby-identifier">mount</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">Engine</span>, <span class="ruby-identifier">at</span><span class="ruby-operator">:</span> <span class="ruby-string">&quot;/alexa&quot;</span>
+  <span class="ruby-keyword">end</span>
+</pre>
+
+<p>This will make you Rails app accept <code>POST</code> requests from <a
+href="Alexa.html">Alexa</a> at <code>
+https://<your-domain>/alexa/intent_handlers </code> This has to be provided
+as the HTTPS endpoint URL for the skill.</p>
+
+<h3 id="label-Request+handling">Request handling<span><a href="#label-Request+handling">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>To handle an intent, you will have to create an intent handler class. For
+example, if your intent is named <code>PlaceOrder</code>, you will have to
+create the following file under you
+<code>app/lib/alexa/intent_handlers</code> directory.</p>
+
+<pre class="ruby"><span class="ruby-keyword">module</span> <span class="ruby-constant">Alexa</span>
+  <span class="ruby-keyword">module</span> <span class="ruby-constant">IntentHandlers</span>
+    <span class="ruby-keyword">class</span> <span class="ruby-constant">PlaceOrder</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">IntentHandlers</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
+      <span class="ruby-keyword">def</span> <span class="ruby-identifier">handle</span>
+        <span class="ruby-operator">...</span>
+        <span class="ruby-identifier">response</span> <span class="ruby-comment"># intent handlers should always return the +response+ object </span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span>
+</pre>
+
+<p>All intent handlers should contain a <code>#handle</code> method that has
+required logic as to how to handle the intent request. For example, adding
+session variables, setting response to elicit slots, delegate etc.</p>
+
+<p><strong>Note</strong>: <code>#handle</code> method should always return the
+<code>response</code> object. <code>response</code> object in available in
+the scope of <code>#handle</code>.</p>
+
+<p>See [Handling Amazon&#39;s Built-in Intents / Other request types] section
+to see how to handle Amazon&#39;s built-in intent and other requests types.</p>
+
+<h4 id="label-Adding+session+variable-3A">Adding session variable:<span><a href="#label-Adding+session+variable-3A">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<pre class="ruby"><span class="ruby-identifier">session</span>.<span class="ruby-identifier">merge!</span>(<span class="ruby-identifier">my_var</span><span class="ruby-operator">:</span> <span class="ruby-identifier">value</span>)
+
+<span class="ruby-comment"># Accesssing session variable</span>
+<span class="ruby-identifier">session</span>[:<span class="ruby-identifier">my_var</span>]
+</pre>
+
+<h4 id="label-Slot+elicitations">Slot elicitations<span><a href="#label-Slot+elicitations">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p>Depending on your conditions, you can set the reponse to elicit a specific
+slot and the respecitve views are used.</p>
+
+<pre class="ruby"><span class="ruby-identifier">response</span>.<span class="ruby-identifier">elicit_slot!</span>(:<span class="ruby-constant">SlotName</span>)
+</pre>
+
+<h4 id="label-Delete+response">Delete response<span><a href="#label-Delete+response">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<p><code>#handle</code> is expected to return an instance of
+<code>Alexa::Response</code> or its subclasses. In normal cases, the
+<code>response</code> object is returned. In cases where the slots
+elicitation is delegated to alexa, an instance of
+<code>Alexa::Responses::Delegate</code> has to be returned.</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">handle</span>
+    <span class="ruby-operator">...</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">Responses</span><span class="ruby-operator">::</span><span class="ruby-constant">Delegate</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-keyword">end</span>
+</pre>
+
+<h3 id="label-Views">Views<span><a href="#label-Views">&para;</a> <a href="#top">&uarr;</a></span></h3>
+
+<p>The content for speech and display cards is not set in the intent handler
+classes. We follow rails convention and expect all response content for
+intents to be in their respective view files.</p>
+
+<p>Also, the views are context locale dependant.</p>
+
+<p>Given an intent named <code>PlaceOrder</code>, you view files would be</p>
+<ul><li>
+<p>SSML:
+<code>views/alexa/en_us/intent_handlers/place_order/speech.ssml.erb</code></p>
+</li><li>
+<p>Card:
+<code>views/alexa/en_us/intent_handlers/place_order/display.text.erb</code></p>
+</li></ul>
+
+<p>In case of slot elicitations, follow a similar convention but make sure you
+name the <code>ssml</code> and <code>text</code> files with the same name
+as the slot that is being elicited. For example, in the
+<code>PlaceOrder</code> intent, the elicatation for <code>Address</code>
+slot would have the following views</p>
+<ul><li>
+<p>SSML:
+<code>views/alexa/en_us/intent_handlers/place_order/elicitations/address.ssml.erb</code></p>
+</li><li>
+<p>Card:
+<code>views/alexa/en_us/intent_handlers/place_order/elicitations/address.text.erb</code></p>
+</li></ul>
+
+<h4 id="label-SSML">SSML<span><a href="#label-SSML">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-Re-prompts">Re-prompts<span><a href="#label-Re-prompts">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>By default, there is no re-prompt SSML is added to the response. However,
+re-prompt SSML can be set in the ssml view of the intent response or a slot
+elicitation view with a <code>content_for :repromt_ssml</code> like this:</p>
+
+<pre>What is your address?
+
+&lt;% content_for :repromt_ssml do %&gt;
+  Where would you like the pizza to be delivered?
+&lt;% end %&gt;</pre>
+
+<h4 id="label-Cards">Cards<span><a href="#label-Cards">&para;</a> <a href="#top">&uarr;</a></span></h4>
+
+<h5 id="label-Type+-26+Title">Type &amp; Title<span><a href="#label-Type+-26+Title">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>By default, the card type is set to <code>Simple</code>. To change the card
+type and title, use the <code>content_for</code> blocks in the
+<code>text</code> view file for the response as follows:</p>
+
+<pre>&lt;% content_for :card_type do %&gt;
+  Simple
+&lt;% end %&gt;
+&lt;% content_for :card_title do %&gt;
+  Get your pizza
+&lt;% end %&gt;</pre>
+
+<h2 id="label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">Handling Amazon&#39;s Built-in Intents / Other request types<span><a href="#label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">&para;</a> <a href="#top">&uarr;</a></span></h2>
+
+<p>Requests for Amazon&#39;s built-in intents and other request types are also
+handled with intent handlers. Below is the mapping for every request type
+and respective intent handler classes. These intent handlers are not
+included in the gem as they are a but specific to the application. Refer to
+the table below and implement the intent handlers.</p>
+
+<p>Built-in Intents:</p>
+
+<p>| Intent name | Handler class | | ————- | ————- | | AMAZON.CancelIntent |
+<code>Alexa::IntentHandlers::GoodBye</code> | | AMAZON.StopIntent |
+<code>Alexa::IntentHandlers::GoodBye</code> | | AMAZON.HelpIntent |
+<code>Alexa::IntentHandlers::Help</code> |</p>
+
+<p>Other request types:</p>
+
+<p>| Request type | Handler class | | ————- | ————- | | Launch request |
+<code>Alexa::IntentHandlers::LaunchApp</code> | | Session end request |
+<code>Alexa::IntentHandlers::SessionEnd</code> |</p>
 
 <h2 id="label-Installation">Installation<span><a href="#label-Installation">&para;</a> <a href="#top">&uarr;</a></span></h2>
 
@@ -156,7 +358,7 @@ href="http://opensource.org/licenses/MIT">MIT License</a>.</p>
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
+  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
