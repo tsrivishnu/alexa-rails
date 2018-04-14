@@ -3,10 +3,10 @@
 
 ## Intallation/Usage
 
-Do the usual by adding the following to your Gemfile:
+Do the usual by adding the following to your `Gemfile`:
 
 ```ruby
-gem install alexa-rails
+gem 'alexa-rails'
 ```
 
 ### Migrations
