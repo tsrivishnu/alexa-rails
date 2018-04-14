@@ -1,4 +1,4 @@
-# Alexa
+# Alexa-rails
 `alexa-rails` is a ruby gem which is a mountable rails engine that will add abilities to your Ruby on Rails application to handle Amazon alexa requests and responses.
 
 ## Intallation/Usage
@@ -33,9 +33,7 @@ Set alexa skill IDs in environment config (ex: config/environments/development.r
     "amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
   ]
 
-  config.x.alexa.default_card_title = [
-    "Alexa rails"
-  ]
+  config.x.alexa.default_card_title = "Alexa rails"
 ```
 
 Mount the engine for routes handling in your routes
@@ -49,15 +47,17 @@ Mount the engine for routes handling in your routes
   end
 ```
 
-### Request handling
+This will make you Rails app accept `POST` requests from Alexa at
+```
+https://<your-domain>/alexa/intent_handlers
+```
+This has to be provided as the HTTPS endpoint URL for the skill.
 
-After the above steps, your application is ready to accept requests from Alexa
-servers at `/alexa/intent_handlers`.
-You will have to provide that in the HTTPS endpoint URL for your skill.
+### Request handling
 
 To handle an intent, you will have to create an intent handler class.
 For example, if your intent is named `PlaceOrder`, you will have to create
-the following file under you `app/lib/intent_handlers` directory.
+the following file under you `app/lib/alexa/intent_handlers` directory.
 
 ```ruby
 module Alexa
@@ -65,6 +65,7 @@ module Alexa
     class PlaceOrder < Alexa::IntentHandlers::Base
       def handle
         ...
+        response # intent handlers should always return the +response+ object 
       end
     end
   end
@@ -73,12 +74,21 @@ end
 
 All intent handlers should contain a `#handle` method that has required logic
 as to how to handle the intent request. For example, adding session variables,
-setting response to elicit slots, etc.
+setting response to elicit slots, delegate etc. 
 
-Adding session variable:
+**Note**: `#handle` method should always return the `response` object.
+`response` object in available in the scope of `#handle`.
+
+See [Handling Amazon's Built-in Intents / Other request types] section to see
+how to handle Amazon's built-in intent and other requests types.
+
+#### Adding session variable:
 
 ```ruby
 session.merge!(my_var: value)
+
+# Accesssing session variable
+session[:my_var]
 ```
 
 #### Slot elicitations
@@ -88,6 +98,20 @@ slot and the respecitve views are used.
 
 ```ruby
 response.elicit_slot!(:SlotName)
+```
+
+#### Delete response
+
+`#handle` is expected to return an instance of `Alexa::Response` or its subclasses.
+In normal cases, the `response` object is returned. 
+In cases where the slots elicitation is delegated to alexa, an instance of 
+`Alexa::Responses::Delegate` has to be returned. 
+
+```ruby
+  def handle
+    ...
+    return Alexa::Responses::Delegate.new
+  end
 ```
 
 ### Views
@@ -145,6 +169,31 @@ view file for the response as follows:
 <% end %>
 
 ```
+
+## Handling Amazon's Built-in Intents / Other request types
+
+Requests for Amazon's built-in intents and other request types
+are also handled with intent handlers. 
+Below is the mapping for every request type and respective 
+intent handler classes.
+These intent handlers are not included in the gem as they are a
+but specific to the application.
+Refer to the table below and implement the intent handlers.
+
+Built-in Intents:
+
+| Intent name | Handler class |
+| ------------- | ------------- |
+| AMAZON.CancelIntent | `Alexa::IntentHandlers::GoodBye` |
+| AMAZON.StopIntent | `Alexa::IntentHandlers::GoodBye` |
+| AMAZON.HelpIntent | `Alexa::IntentHandlers::Help` |
+
+Other request types:
+
+| Request type | Handler class |
+| ------------- | ------------- |
+| Launch request | `Alexa::IntentHandlers::LaunchApp` |
+| Session end request | `Alexa::IntentHandlers::SessionEnd` |
 
 ## Installation
 Add this line to your application's Gemfile:
