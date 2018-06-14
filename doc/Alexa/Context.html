@@ -77,7 +77,11 @@
     
     <li ><a href="#method-i-api_endpoint">#api_endpoint</a>
     
+    <li ><a href="#method-i-country_code">#country_code</a>
+    
     <li ><a href="#method-i-device">#device</a>
+    
+    <li ><a href="#method-i-language_code">#language_code</a>
     
     <li ><a href="#method-i-locale">#locale</a>
     
@@ -200,7 +204,7 @@
 
           
           <div class="method-source-code" id="api_access_token-source">
-            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 34</span>
+            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 50</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">api_access_token</span>
   <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;context&quot;</span>][<span class="ruby-string">&quot;System&quot;</span>][<span class="ruby-string">&quot;apiAccessToken&quot;</span>]
 <span class="ruby-keyword">end</span></pre>
@@ -233,9 +237,43 @@
 
           
           <div class="method-source-code" id="api_endpoint-source">
-            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 30</span>
+            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 46</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">api_endpoint</span>
   <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;context&quot;</span>][<span class="ruby-string">&quot;System&quot;</span>][<span class="ruby-string">&quot;apiEndpoint&quot;</span>]
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-country_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">country_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns country code from locale. Always in lowercase</p>
+          
+          
+
+          
+          <div class="method-source-code" id="country_code-source">
+            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 26</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">country_code</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_country_code</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">downcase</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -266,12 +304,46 @@
 
           
           <div class="method-source-code" id="device-source">
-            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 23</span>
+            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 39</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">device</span>
   <span class="ruby-ivar">@_device</span> <span class="ruby-operator">||=</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">Device</span>.<span class="ruby-identifier">new</span>(
     <span class="ruby-identifier">attributes</span><span class="ruby-operator">:</span> <span class="ruby-identifier">request</span>.<span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;context&quot;</span>][<span class="ruby-string">&quot;System&quot;</span>][<span class="ruby-string">&quot;device&quot;</span>],
     <span class="ruby-identifier">context</span><span class="ruby-operator">:</span> <span class="ruby-keyword">self</span>
   )
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
+      <div id="method-i-language_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">language_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns language code from locale. Always in lowercase</p>
+          
+          
+
+          
+          <div class="method-source-code" id="language_code-source">
+            <pre><span class="ruby-comment"># File lib/alexa/context.rb, line 34</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">language_code</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_language_code</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">downcase</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           

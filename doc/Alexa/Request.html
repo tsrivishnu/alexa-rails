@@ -77,8 +77,6 @@
     
     <li ><a href="#method-i-cancel_request-3F">#cancel_request?</a>
     
-    <li ><a href="#method-i-country_code">#country_code</a>
-    
     <li ><a href="#method-i-dialog_state">#dialog_state</a>
     
     <li ><a href="#method-i-help_request-3F">#help_request?</a>
@@ -86,8 +84,6 @@
     <li ><a href="#method-i-intent_name">#intent_name</a>
     
     <li ><a href="#method-i-intent_request-3F">#intent_request?</a>
-    
-    <li ><a href="#method-i-language_code">#language_code</a>
     
     <li ><a href="#method-i-launch_request-3F">#launch_request?</a>
     
@@ -287,40 +283,6 @@
       </div>
 
     
-      <div id="method-i-country_code" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">country_code</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Returns country code from locale. Always in lowercase</p>
-          
-          
-
-          
-          <div class="method-source-code" id="country_code-source">
-            <pre><span class="ruby-comment"># File lib/alexa/request.rb, line 91</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">country_code</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">nil?</span>
-  <span class="ruby-ivar">@_country_code</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">downcase</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
       <div id="method-i-dialog_state" class="method-detail ">
         
         <div class="method-heading">
@@ -443,40 +405,6 @@
             <pre><span class="ruby-comment"># File lib/alexa/request.rb, line 28</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">intent_request?</span>
   <span class="ruby-identifier">type</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;IntentRequest&quot;</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-
-        
-      </div>
-
-    
-      <div id="method-i-language_code" class="method-detail ">
-        
-        <div class="method-heading">
-          <span class="method-name">language_code</span><span
-            class="method-args">()</span>
-          
-          <span class="method-click-advice">click to toggle source</span>
-          
-        </div>
-        
-
-        <div class="method-description">
-          
-          <p>Returns language code from locale. Always in lowercase</p>
-          
-          
-
-          
-          <div class="method-source-code" id="language_code-source">
-            <pre><span class="ruby-comment"># File lib/alexa/request.rb, line 99</span>
-<span class="ruby-keyword">def</span> <span class="ruby-identifier">language_code</span>
-  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">nil?</span>
-  <span class="ruby-ivar">@_language_code</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">downcase</span>
 <span class="ruby-keyword">end</span></pre>
           </div>
           
