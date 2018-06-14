@@ -8,6 +8,7 @@
 
 <script type="text/javascript">
   var rdoc_rel_prefix = "../";
+  var index_rel_prefix = "../";
 </script>
 
 <script src="../js/jquery.js"></script>
@@ -76,6 +77,8 @@
     
     <li ><a href="#method-i-cancel_request-3F">#cancel_request?</a>
     
+    <li ><a href="#method-i-country_code">#country_code</a>
+    
     <li ><a href="#method-i-dialog_state">#dialog_state</a>
     
     <li ><a href="#method-i-help_request-3F">#help_request?</a>
@@ -83,6 +86,8 @@
     <li ><a href="#method-i-intent_name">#intent_name</a>
     
     <li ><a href="#method-i-intent_request-3F">#intent_request?</a>
+    
+    <li ><a href="#method-i-language_code">#language_code</a>
     
     <li ><a href="#method-i-launch_request-3F">#launch_request?</a>
     
@@ -282,6 +287,40 @@
       </div>
 
     
+      <div id="method-i-country_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">country_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns country code from locale. Always in lowercase</p>
+          
+          
+
+          
+          <div class="method-source-code" id="country_code-source">
+            <pre><span class="ruby-comment"># File lib/alexa/request.rb, line 91</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">country_code</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_country_code</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>).<span class="ruby-identifier">last</span>.<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-dialog_state" class="method-detail ">
         
         <div class="method-heading">
@@ -415,6 +454,40 @@
       </div>
 
     
+      <div id="method-i-language_code" class="method-detail ">
+        
+        <div class="method-heading">
+          <span class="method-name">language_code</span><span
+            class="method-args">()</span>
+          
+          <span class="method-click-advice">click to toggle source</span>
+          
+        </div>
+        
+
+        <div class="method-description">
+          
+          <p>Returns language code from locale. Always in lowercase</p>
+          
+          
+
+          
+          <div class="method-source-code" id="language_code-source">
+            <pre><span class="ruby-comment"># File lib/alexa/request.rb, line 99</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">language_code</span>
+  <span class="ruby-keyword">return</span> <span class="ruby-keyword">nil</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">nil?</span>
+  <span class="ruby-ivar">@_language_code</span> <span class="ruby-operator">||=</span> <span class="ruby-identifier">locale</span>.<span class="ruby-identifier">split</span>(<span class="ruby-string">&quot;-&quot;</span>).<span class="ruby-identifier">first</span>.<span class="ruby-identifier">downcase</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+          
+        </div>
+
+        
+
+        
+      </div>
+
+    
       <div id="method-i-launch_request-3F" class="method-detail ">
         
         <div class="method-heading">
@@ -469,16 +542,7 @@
           <div class="method-source-code" id="locale-source">
             <pre><span class="ruby-comment"># File lib/alexa/request.rb, line 84</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">locale</span>
-  <span class="ruby-identifier">request_locale</span> = <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;request&quot;</span>][<span class="ruby-string">&quot;locale&quot;</span>]
-  <span class="ruby-keyword">case</span> <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;request&quot;</span>][<span class="ruby-string">&quot;locale&quot;</span>]
-  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;en-US&quot;</span>, <span class="ruby-string">&quot;en-GB&quot;</span>, <span class="ruby-string">&quot;en-IN&quot;</span>, <span class="ruby-string">&#39;en-CA&#39;</span>
-    <span class="ruby-comment"># this is to match pjpp locale codes</span>
-    <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;request&quot;</span>][<span class="ruby-string">&quot;locale&quot;</span>].<span class="ruby-identifier">gsub</span>(<span class="ruby-string">&quot;-&quot;</span>, <span class="ruby-string">&quot;_&quot;</span>).<span class="ruby-identifier">downcase</span>
-  <span class="ruby-keyword">when</span> <span class="ruby-string">&quot;de-DE&quot;</span>
-    <span class="ruby-string">&quot;de&quot;</span>
-  <span class="ruby-keyword">else</span>
-    <span class="ruby-string">&quot;en_gb&quot;</span>
-  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">params</span>[<span class="ruby-string">&quot;request&quot;</span>][<span class="ruby-string">&quot;locale&quot;</span>]
 <span class="ruby-keyword">end</span></pre>
           </div>
           
@@ -711,7 +775,7 @@
 
 <footer id="validator-badges" role="contentinfo">
   <p><a href="http://validator.w3.org/check/referer">Validate</a>
-  <p>Generated by <a href="http://docs.seattlerb.org/rdoc/">RDoc</a> 4.2.1.
+  <p>Generated by <a href="https://rdoc.github.io/rdoc">RDoc</a> 5.0.0.
   <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
 </footer>
 
