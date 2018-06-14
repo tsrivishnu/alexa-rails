@@ -84,5 +84,21 @@ module Alexa
     def locale
       params["request"]["locale"]
     end
+
+    ##
+    # Returns country code from locale. Always in lowercase
+    ##
+    def country_code
+      return nil if locale.nil?
+      @_country_code ||= locale.split("-").last.downcase
+    end
+
+    ##
+    # Returns language code from locale. Always in lowercase
+    ##
+    def language_code
+      return nil if locale.nil?
+      @_language_code ||= locale.split("-").first.downcase
+    end
   end
 end
