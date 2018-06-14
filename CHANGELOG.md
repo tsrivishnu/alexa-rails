@@ -1,4 +1,12 @@
 ## Version 0.1.4
+* Remove:
+  * `Alexa::Request#language_code` and `Alexa::Request#country_code`.
+    - Move them to `Alexa::Context`.
+
+* Add:
+  * `Alexa::Context#language_code` and `Alexa::Context#country_code`.
+
+## Version 0.1.4
 * Add:
   * `Alexa::Request#language_code` and `Alexa::Request#country_code`.
 
