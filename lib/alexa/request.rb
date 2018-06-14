@@ -82,16 +82,7 @@ module Alexa
     end
 
     def locale
-      request_locale = params["request"]["locale"]
-      case params["request"]["locale"]
-      when "en-US", "en-GB", "en-IN", 'en-CA'
-        # this is to match pjpp locale codes
-        params["request"]["locale"].gsub("-", "_").downcase
-      when "de-DE"
-        "de"
-      else
-        "en_gb"
-      end
+      params["request"]["locale"]
     end
   end
 end
