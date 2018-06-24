@@ -65,7 +65,7 @@ module Alexa
     class PlaceOrder < Alexa::IntentHandlers::Base
       def handle
         ...
-        response # intent handlers should always return the +response+ object 
+        response # intent handlers should always return the +response+ object
       end
     end
   end
@@ -74,7 +74,7 @@ end
 
 All intent handlers should contain a `#handle` method that has required logic
 as to how to handle the intent request. For example, adding session variables,
-setting response to elicit slots, delegate etc. 
+setting response to elicit slots, delegate etc.
 
 **Note**: `#handle` method should always return the `response` object.
 `response` object in available in the scope of `#handle`.
@@ -100,12 +100,12 @@ slot and the respecitve views are used.
 response.elicit_slot!(:SlotName)
 ```
 
-#### Delete response
+#### Delegate response
 
 `#handle` is expected to return an instance of `Alexa::Response` or its subclasses.
-In normal cases, the `response` object is returned. 
-In cases where the slots elicitation is delegated to alexa, an instance of 
-`Alexa::Responses::Delegate` has to be returned. 
+In normal cases, the `response` object is returned.
+In cases where the slots elicitation is delegated to alexa, an instance of
+`Alexa::Responses::Delegate` has to be returned.
 
 ```ruby
   def handle
@@ -170,11 +170,30 @@ view file for the response as follows:
 
 ```
 
+##### Permission cards
+
+To render a permission card. Use `ask_for_permissions_consent` as the `card_type`
+and provide the scope in `permissions_scope` content_for block.
+Following is an example for Device address permission card.
+
+```erb
+<% content_for :card_type do %>
+  ask_for_permissions_consent
+<% end %>
+
+<% content_for :permissions_scope do %>
+  read::alexa:device:all:address
+<% end %>
+```
+
+*Note*: The permission card should not have any other content other than the
+content for `card_type` and `permissions_scope`.
+
 ## Handling Amazon's Built-in Intents / Other request types
 
 Requests for Amazon's built-in intents and other request types
-are also handled with intent handlers. 
-Below is the mapping for every request type and respective 
+are also handled with intent handlers.
+Below is the mapping for every request type and respective
 intent handler classes.
 These intent handlers are not included in the gem as they are a
 but specific to the application.

@@ -58,11 +58,6 @@ module Alexa
         @_usage_count ||= context.user.usage_count_for(intent_name: request.intent_name)
       end
 
-      def show_device_address_permission_consent_card?
-        @_show_device_address_permission_consent_card == true
-      end
-
-
       protected
 
       def has_all_slots?
@@ -124,14 +119,6 @@ module Alexa
             "shouldEndSession": false
           }
         }
-      end
-
-      def show_device_address_permission_consent_card!
-        @_show_device_address_permission_consent_card = true
-      end
-
-      def device_address_permission_consent_response
-        @_device_address_permission_consent_response ||= Alexa::Responses::PermissionConsents::DeviceAddress.new(intent: self)
       end
 
       def delegate_response
