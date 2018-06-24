@@ -1,4 +1,5 @@
 ## Version 0.1.6
+
 * Remove:
   * `Alexa::IntentHandler::Base#show_device_address_permission_consent_card!`
   and `Alexa::IntentHandler::Base#show_device_address_permission_consent_card?`
@@ -8,6 +9,12 @@
   * Abilty to render a custom template in a response with
   `Alexa::Response#with(template: )`. See:
   https://github.com/tsrivishnu/alexa-rails/issues/9
+
+* Changes:
+  * Default intent handler view files are no more `speech.ssml.erb` and
+  `display.text.erb`. They are now renamed to `default.ssml.erb` and
+  `default.text.erb`. See:
+  https://github.com/tsrivishnu/alexa-rails/issues/10
 
 ## Version 0.1.5
 * Remove:
