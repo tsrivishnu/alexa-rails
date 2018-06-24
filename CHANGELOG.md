@@ -1,4 +1,9 @@
-## Version 0.1.4
+## Version 0.1.6
+* Remove:
+  * `Alexa::IntentHandler::Base#show_device_address_permission_consent_card!`
+  and `Alexa::IntentHandler::Base#show_device_address_permission_consent_card?`
+    - default repsonses will no longer render device address permission cards.
+## Version 0.1.5
 * Remove:
   * `Alexa::Request#language_code` and `Alexa::Request#country_code`.
     - Move them to `Alexa::Context`.
