@@ -48,9 +48,9 @@ module Alexa
           end
         else
           if format == :ssml
-            "#{template_path}/speech.ssml.erb"
+            "#{template_path}/default.ssml.erb"
           else
-            "#{template_path}/display.text.erb"
+            "#{template_path}/default.text.erb"
           end
         end
       end

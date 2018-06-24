@@ -116,17 +116,17 @@ In cases where the slots elicitation is delegated to alexa, an instance of
 
 ### Views
 
-The content for speech and display cards is not set in the intent handler
+The content for SSML and display cards is not set in the intent handler
 classes.
 We follow rails convention and expect all response content for intents to be
-in their respective view files.
+in their respective `default` view files.
 
 Also, the views are context locale dependant.
 
 Given an intent named `PlaceOrder`, you view files would be
 
-  * SSML: `views/alexa/en_us/intent_handlers/place_order/speech.ssml.erb`
-  * Card: `views/alexa/en_us/intent_handlers/place_order/display.text.erb`
+  * SSML: `views/alexa/en_us/intent_handlers/place_order/default.ssml.erb`
+  * Card: `views/alexa/en_us/intent_handlers/place_order/default.text.erb`
 
 In case of slot elicitations, follow a similar convention but make sure you
 name the `ssml` and `text` files with the same name as the slot that is being
