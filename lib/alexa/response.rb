@@ -8,6 +8,12 @@ module Alexa
       @slots_to_not_render_elicitation = []
     end
 
+    def with(template: )
+      # TODO make this return a new object instead of self.
+      @force_template_filename = template
+      self
+    end
+
     # Marks a slot for elicitation.
     #
     # Options:
@@ -32,6 +38,10 @@ module Alexa
 
       template_path = "alexa/#{intent.context.locale}/intent_handlers/"\
         "#{intent.class.name.demodulize.underscore}"
+
+      if filename.nil? && @force_template_filename.present?
+        filename = @force_template_filename
+      end
 
       if filename.present?
         if format == :ssml
