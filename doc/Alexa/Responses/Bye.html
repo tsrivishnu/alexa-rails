@@ -240,7 +240,7 @@
           <div class="method-source-code" id="partial_path-source">
             <pre><span class="ruby-comment"># File lib/alexa/responses/bye.rb, line 10</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">partial_path</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:ssml</span>)
-  <span class="ruby-identifier">template_path</span> = <span class="ruby-node">&quot;alexa/#{intent.context.locale}/intent_handlers/&quot;</span>           <span class="ruby-node">&quot;#{intent.class.name.demodulize.underscore}&quot;</span>
+  <span class="ruby-identifier">template_path</span> = <span class="ruby-node">&quot;alexa/#{intent.context.locale.downcase}/intent_handlers/&quot;</span>           <span class="ruby-node">&quot;#{intent.class.name.demodulize.underscore}&quot;</span>
 
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ssml</span>
     <span class="ruby-node">&quot;#{template_path}/bye.ssml.erb&quot;</span>

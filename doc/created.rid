@@ -1,24 +1,24 @@
-Thu, 14 Jun 2018 15:30:44 +0200
+Mon, 25 Jun 2018 00:23:59 +0200
 ./Gemfile.lock	Fri, 01 Jun 2018 15:39:11 +0200
 ./Gemfile	Fri, 01 Jun 2018 15:39:11 +0200
 ./lib/alexa-rails.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./lib/tasks/alexa_tasks.rake	Fri, 01 Jun 2018 15:39:12 +0200
-./lib/alexa/response.rb	Fri, 01 Jun 2018 15:39:12 +0200
+./lib/alexa/response.rb	Mon, 25 Jun 2018 00:14:46 +0200
 ./lib/alexa/responses/delegate.rb	Fri, 01 Jun 2018 15:39:12 +0200
-./lib/alexa/responses/bye.rb	Fri, 01 Jun 2018 15:39:12 +0200
-./lib/alexa/responses/permission_consents/device_address.rb	Fri, 01 Jun 2018 15:39:12 +0200
-./lib/alexa/intent_handlers/base.rb	Fri, 01 Jun 2018 15:39:12 +0200
+./lib/alexa/responses/bye.rb	Mon, 25 Jun 2018 00:14:46 +0200
+./lib/alexa/responses/permission_consents/device_address.rb	Mon, 25 Jun 2018 00:14:46 +0200
+./lib/alexa/intent_handlers/base.rb	Sun, 24 Jun 2018 23:18:06 +0200
 ./lib/alexa/slot.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./lib/alexa/request.rb	Thu, 14 Jun 2018 15:29:20 +0200
 ./lib/alexa/device.rb	Fri, 01 Jun 2018 15:39:12 +0200
-./lib/alexa/version.rb	Thu, 14 Jun 2018 15:29:30 +0200
+./lib/alexa/version.rb	Mon, 25 Jun 2018 00:23:12 +0200
 ./lib/alexa/engine.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./lib/alexa/session.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./lib/alexa/context.rb	Thu, 14 Jun 2018 15:29:20 +0200
 ./lib/generators/alexa/migrations_generator.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./lib/generators/alexa/templates/create_alexa_users.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./lib/generators/alexa/templates/create_alexa_usages.rb	Fri, 01 Jun 2018 15:39:12 +0200
-./CHANGELOG.md	Thu, 14 Jun 2018 15:30:36 +0200
+./CHANGELOG.md	Mon, 25 Jun 2018 00:22:12 +0200
 ./bin/rails	Fri, 01 Jun 2018 15:39:11 +0200
 ./app/mailers/alexa/application_mailer.rb	Fri, 01 Jun 2018 15:39:11 +0200
 ./app/models/alexa/application_record.rb	Fri, 01 Jun 2018 15:39:11 +0200
@@ -95,6 +95,6 @@ Thu, 14 Jun 2018 15:30:44 +0200
 ./test/alexa_test.rb	Fri, 01 Jun 2018 15:39:12 +0200
 ./alexa.gemspec	Fri, 01 Jun 2018 15:39:11 +0200
 ./Rakefile	Fri, 01 Jun 2018 15:39:11 +0200
-./README.md	Fri, 01 Jun 2018 15:39:11 +0200
+./README.md	Mon, 25 Jun 2018 00:20:13 +0200
 ./config/routes.rb	Fri, 01 Jun 2018 15:39:11 +0200
 ./MIT-LICENSE	Fri, 01 Jun 2018 15:39:11 +0200

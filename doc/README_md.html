@@ -63,12 +63,14 @@
     <li><a href="#label-Request+handling">Request handling</a>
     <li><a href="#label-Adding+session+variable-3A">Adding session variable:</a>
     <li><a href="#label-Slot+elicitations">Slot elicitations</a>
-    <li><a href="#label-Delete+response">Delete response</a>
+    <li><a href="#label-Delegate+response">Delegate response</a>
     <li><a href="#label-Views">Views</a>
+    <li><a href="#label-Render+custom+template+instead+of+default">Render custom template instead of default</a>
     <li><a href="#label-SSML">SSML</a>
     <li><a href="#label-Re-prompts">Re-prompts</a>
     <li><a href="#label-Cards">Cards</a>
     <li><a href="#label-Type+-26+Title">Type &amp; Title</a>
+    <li><a href="#label-Permission+cards">Permission cards</a>
     <li><a href="#label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">Handling Amazon&#39;s Built-in Intents / Other request types</a>
     <li><a href="#label-Installation">Installation</a>
     <li><a href="#label-Contributing">Contributing</a>
@@ -204,7 +206,7 @@ create the following file under you
     <span class="ruby-keyword">class</span> <span class="ruby-constant">PlaceOrder</span> <span class="ruby-operator">&lt;</span> <span class="ruby-constant">Alexa</span><span class="ruby-operator">::</span><span class="ruby-constant">IntentHandlers</span><span class="ruby-operator">::</span><span class="ruby-constant">Base</span>
       <span class="ruby-keyword">def</span> <span class="ruby-identifier">handle</span>
         <span class="ruby-operator">...</span>
-        <span class="ruby-identifier">response</span> <span class="ruby-comment"># intent handlers should always return the +response+ object </span>
+        <span class="ruby-identifier">response</span> <span class="ruby-comment"># intent handlers should always return the +response+ object</span>
       <span class="ruby-keyword">end</span>
     <span class="ruby-keyword">end</span>
   <span class="ruby-keyword">end</span>
@@ -238,7 +240,7 @@ slot and the respecitve views are used.</p>
 <pre class="ruby"><span class="ruby-identifier">response</span>.<span class="ruby-identifier">elicit_slot!</span>(:<span class="ruby-constant">SlotName</span>)
 </pre>
 
-<h4 id="label-Delete+response">Delete response<span><a href="#label-Delete+response">&para;</a> <a href="#top">&uarr;</a></span></h4>
+<h4 id="label-Delegate+response">Delegate response<span><a href="#label-Delegate+response">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
 <p><code>#handle</code> is expected to return an instance of
 <code>Alexa::Response</code> or its subclasses. In normal cases, the
@@ -254,19 +256,19 @@ elicitation is delegated to alexa, an instance of
 
 <h3 id="label-Views">Views<span><a href="#label-Views">&para;</a> <a href="#top">&uarr;</a></span></h3>
 
-<p>The content for speech and display cards is not set in the intent handler
+<p>The content for SSML and display cards is not set in the intent handler
 classes. We follow rails convention and expect all response content for
-intents to be in their respective view files.</p>
+intents to be in their respective <code>default</code> view files.</p>
 
 <p>Also, the views are context locale dependant.</p>
 
 <p>Given an intent named <code>PlaceOrder</code>, you view files would be</p>
 <ul><li>
 <p>SSML:
-<code>views/alexa/en_us/intent_handlers/place_order/speech.ssml.erb</code></p>
+<code>views/alexa/en_us/intent_handlers/place_order/default.ssml.erb</code></p>
 </li><li>
 <p>Card:
-<code>views/alexa/en_us/intent_handlers/place_order/display.text.erb</code></p>
+<code>views/alexa/en_us/intent_handlers/place_order/default.text.erb</code></p>
 </li></ul>
 
 <p>In case of slot elicitations, follow a similar convention but make sure you
@@ -281,6 +283,26 @@ slot would have the following views</p>
 <p>Card:
 <code>views/alexa/en_us/intent_handlers/place_order/elicitations/address.text.erb</code></p>
 </li></ul>
+
+<h5 id="label-Render+custom+template+instead+of+default">Render custom template instead of default<span><a href="#label-Render+custom+template+instead+of+default">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>If you wish to force the <code>response</code> object to take contents from
+a different template file instead of <code>default.*.erb</code>, pass the
+custom filename with <code>Alexa::Response#with(template: )</code>.</p>
+
+<p>For example: Instead of <code>default</code>, if you wish to render the
+contents of <code>no_results.ssml.erb</code> and
+<code>no_results.text.erb</code>, return the response by forcing the
+template with the following:</p>
+
+<pre class="ruby"><span class="ruby-keyword">def</span> <span class="ruby-identifier">handle</span>
+    <span class="ruby-operator">...</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-identifier">response</span>.<span class="ruby-identifier">with</span>(<span class="ruby-identifier">template</span><span class="ruby-operator">:</span> :<span class="ruby-identifier">no_results</span>)
+  <span class="ruby-keyword">end</span>
+</pre>
+
+<p>and make sure you add your contents in the <code>no_results.*.erb</code>
+files in your intent handlers&#39; views&#39; directory.</p>
 
 <h4 id="label-SSML">SSML<span><a href="#label-SSML">&para;</a> <a href="#top">&uarr;</a></span></h4>
 
@@ -310,6 +332,25 @@ type and title, use the <code>content_for</code> blocks in the
 &lt;% content_for :card_title do %&gt;
   Get your pizza
 &lt;% end %&gt;</pre>
+
+<h5 id="label-Permission+cards">Permission cards<span><a href="#label-Permission+cards">&para;</a> <a href="#top">&uarr;</a></span></h5>
+
+<p>To render a permission card. Use <code>ask_for_permissions_consent</code>
+as the <code>card_type</code> and provide the scope in
+<code>permissions_scope</code> content_for block. Following is an example
+for Device address permission card.</p>
+
+<pre>&lt;% content_for :card_type do %&gt;
+  ask_for_permissions_consent
+&lt;% end %&gt;
+
+&lt;% content_for :permissions_scope do %&gt;
+  read::alexa:device:all:address
+&lt;% end %&gt;</pre>
+
+<p><em>Note</em>: The permission card should not have any other content other
+than the content for <code>card_type</code> and
+<code>permissions_scope</code>.</p>
 
 <h2 id="label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">Handling Amazon&#39;s Built-in Intents / Other request types<span><a href="#label-Handling+Amazon-27s+Built-in+Intents+-2F+Other+request+types">&para;</a> <a href="#top">&uarr;</a></span></h2>
 

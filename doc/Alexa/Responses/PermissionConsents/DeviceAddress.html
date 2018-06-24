@@ -241,7 +241,7 @@
             <pre><span class="ruby-comment"># File lib/alexa/responses/permission_consents/device_address.rb, line 11</span>
 <span class="ruby-keyword">def</span> <span class="ruby-identifier">partial_path</span>(<span class="ruby-identifier">format</span><span class="ruby-operator">:</span> <span class="ruby-value">:ssml</span>)
   <span class="ruby-keyword">if</span> <span class="ruby-identifier">format</span> <span class="ruby-operator">==</span> <span class="ruby-value">:ssml</span>
-    <span class="ruby-node">&quot;alexa/#{intent.context.locale}/intent_handlers/&quot;</span>               <span class="ruby-node">&quot;#{intent.class.name.demodulize.underscore}&quot;</span>               <span class="ruby-string">&quot;/permission_consents/&quot;</span>               <span class="ruby-string">&quot;device_address.ssml.erb&quot;</span>
+    <span class="ruby-node">&quot;alexa/#{intent.context.locale.downcase}/intent_handlers/&quot;</span>               <span class="ruby-node">&quot;#{intent.class.name.demodulize.underscore}&quot;</span>               <span class="ruby-string">&quot;/permission_consents/&quot;</span>               <span class="ruby-string">&quot;device_address.ssml.erb&quot;</span>
   <span class="ruby-keyword">else</span>
     <span class="ruby-string">&quot;alexa/permission_consents/device_address.text.erb&quot;</span>
   <span class="ruby-keyword">end</span>
