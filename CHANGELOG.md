@@ -3,6 +3,12 @@
   * `Alexa::IntentHandler::Base#show_device_address_permission_consent_card!`
   and `Alexa::IntentHandler::Base#show_device_address_permission_consent_card?`
     - default repsonses will no longer render device address permission cards.
+
+* Add:
+  * Abilty to render a custom template in a response with
+  `Alexa::Response#with(template: )`. See:
+  https://github.com/tsrivishnu/alexa-rails/issues/9
+
 ## Version 0.1.5
 * Remove:
   * `Alexa::Request#language_code` and `Alexa::Request#country_code`.

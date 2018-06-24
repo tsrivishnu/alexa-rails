@@ -136,6 +136,25 @@ slot would have the following views
   * SSML: `views/alexa/en_us/intent_handlers/place_order/elicitations/address.ssml.erb`
   * Card: `views/alexa/en_us/intent_handlers/place_order/elicitations/address.text.erb`
 
+##### Render custom template instead of default
+
+If you wish to force the `response` object to take contents from a different
+template file instead of `default.*.erb`, pass the custom filename with
+`Alexa::Response#with(template: )`.
+
+For example: Instead of `default`, if you wish to render the contents of
+`no_results.ssml.erb` and `no_results.text.erb`, return the response by forcing
+the template with the following:
+
+```ruby
+  def handle
+    ...
+    return response.with(template: :no_results)
+  end
+```
+and make sure you add your contents in the `no_results.*.erb` files in your
+intent handlers' views' directory.
+
 #### SSML
 
 ##### Re-prompts
