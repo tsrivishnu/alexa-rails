@@ -36,7 +36,7 @@ module Alexa
         slot_to_elicit = elicit_directives.first[:slotToElicit]
       end
 
-      template_path = "alexa/#{intent.context.locale}/intent_handlers/"\
+      template_path = "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
         "#{intent.class.name.demodulize.underscore}"
 
       if filename.nil? && @force_template_filename.present?

@@ -10,7 +10,7 @@ module Alexa
 
         def partial_path(format: :ssml)
           if format == :ssml
-            "alexa/#{intent.context.locale}/intent_handlers/"\
+            "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
               "#{intent.class.name.demodulize.underscore}"\
               "/permission_consents/"\
               "device_address.ssml.erb"

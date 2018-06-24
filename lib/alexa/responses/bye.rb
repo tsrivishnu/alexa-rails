@@ -8,7 +8,7 @@ module Alexa
       end
 
       def partial_path(format: :ssml)
-        template_path = "alexa/#{intent.context.locale}/intent_handlers/"\
+        template_path = "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
           "#{intent.class.name.demodulize.underscore}"
 
         if format == :ssml
