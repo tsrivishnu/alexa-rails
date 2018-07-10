@@ -65,7 +65,7 @@ module Alexa
 
     def partials_directory
       @_partials_directory ||= "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
-        "#{intent.class.name.demodulize.underscore}"
+        "#{intent_directory_name}"
     end
 
     def elicit_directives
@@ -86,6 +86,13 @@ module Alexa
       return false if keep_listening?
       return false if elicit_directives.any?
       return true
+    end
+
+    def intent_directory_name
+      # respects namespacing.
+      # For example +Alexa::IntentHandlers::MyNameSpace::IntentName+
+      # will return +my_name_space/intent_name+.
+      intent.class.name.split("::").drop(2).join("::").underscore
     end
   end
 end
