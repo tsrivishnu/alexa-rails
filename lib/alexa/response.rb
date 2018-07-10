@@ -36,34 +36,36 @@ module Alexa
         slot_to_elicit = elicit_directives.first[:slotToElicit]
       end
 
-      template_path = "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
-        "#{intent.class.name.demodulize.underscore}"
-
       if filename.nil? && @force_template_filename.present?
         filename = @force_template_filename
       end
 
       if filename.present?
         if format == :ssml
-          "#{template_path}/#{filename}.ssml.erb"
+          "#{partials_directory}/#{filename}.ssml.erb"
         else
-          "#{template_path}/#{filename}.text.erb"
+          "#{partials_directory}/#{filename}.text.erb"
         end
       else
         if slot_to_elicit.present? && !@slots_to_not_render_elicitation.include?(slot_to_elicit)
           if format == :ssml
-            "#{template_path}/elicitations/#{slot_to_elicit.underscore}.ssml.erb"
+            "#{partials_directory}/elicitations/#{slot_to_elicit.underscore}.ssml.erb"
           else
-            "#{template_path}/elicitations/#{slot_to_elicit.underscore}.text.erb"
+            "#{partials_directory}/elicitations/#{slot_to_elicit.underscore}.text.erb"
           end
         else
           if format == :ssml
-            "#{template_path}/default.ssml.erb"
+            "#{partials_directory}/default.ssml.erb"
           else
-            "#{template_path}/default.text.erb"
+            "#{partials_directory}/default.text.erb"
           end
         end
       end
+    end
+
+    def partials_directory
+      @_partials_directory ||= "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
+        "#{intent.class.name.demodulize.underscore}"
     end
 
     def elicit_directives

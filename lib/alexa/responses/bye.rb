@@ -8,14 +8,16 @@ module Alexa
       end
 
       def partial_path(format: :ssml)
-        template_path = "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
-          "#{intent.class.name.demodulize.underscore}"
-
         if format == :ssml
-          "#{template_path}/bye.ssml.erb"
+          "#{partials_directory}/bye.ssml.erb"
         else
-          "#{template_path}/bye.text.erb"
+          "#{partials_directory}/bye.text.erb"
         end
+      end
+
+      def partials_directory
+        @_partials_directory ||= "alexa/#{intent.context.locale.downcase}/intent_handlers/"\
+          "#{intent.class.name.demodulize.underscore}"
       end
 
       def end_session?

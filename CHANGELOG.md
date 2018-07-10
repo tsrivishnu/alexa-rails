@@ -1,3 +1,7 @@
+## Version 0.1.7
+* Add:
+  * `Alexa::Response#partial_path` to override only a path to the templates
+  in a response.
 ## Version 0.1.6
 
 * Remove:
