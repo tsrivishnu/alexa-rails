@@ -28,33 +28,29 @@ module Alexa
     # Makes an API to amazon alexa's device location service and returns the
     # location hash
     def location
-      @_location ||= get_location
+      @_location ||= begin
+        if Alexa.configuration.location_permission_type == :full_address
+          get_address
+        elsif Alexa.configuration.location_permission_type == :country_and_postal_code
+          get_address(only: :country_and_postal_code)
+        end
+      end
     end
 
     private
 
-    def get_location
+    def get_address(only: nil)
       url = "#{@context.api_endpoint}/v1/devices/#{id}/settings/address"
+      url = url + "/countryAndPostalCode" if only == :country_and_postal_code
       conn = Faraday.new(url: url) do |conn|
         conn.options["open_timeout"] = 2
         conn.options["timeout"] = 3
         conn.adapter :net_http
         conn.headers["Authorization"] = "Bearer #{@context.api_access_token}"
       end
-      begin
-        resp = conn.get
-        if resp.status == 200
-          return JSON.parse(resp.body)
-        end
-      rescue Faraday::ConnectionFailed, JSON::ParserError => e
-        Raven.capture_exception(
-          e,
-          extra: {
-            deviceId: id,
-            apiEndPoint: @context.api_endpoint
-          }
-        )
-        return {}
+      resp = conn.get
+      if resp.status == 200
+        return JSON.parse(resp.body)
       end
     end
   end
