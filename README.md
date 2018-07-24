@@ -22,18 +22,21 @@ $ rake db:migrate
 
 ### Configuration
 
-Set alexa skill IDs in environment config (ex: config/environments/development.rb).
-
+Add `config/initializers/alexa.rb` and add the following configuration
 
 ```ruby
-  # config/environments/development.rb
+    Alexa.configure do |config|
+      # Location permissions type
+      config.location_permission_type = country_and_postal_code # or full_address
 
-  # For request validation
-  config.x.alexa.skill_ids = [
-    "amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
-  ]
+      # Default title used on the display cards for your skill
+      config.default_card_title = "My Alexa skill"
 
-  config.x.alexa.default_card_title = "Alexa rails"
+      # Add ID of your skills. Used for request verification
+      config.skill_ids = [
+        "amzn1.ask.skill.xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxx"
+      ]
+    end
 ```
 
 Mount the engine for routes handling in your routes

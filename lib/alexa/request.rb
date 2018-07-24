@@ -73,7 +73,7 @@ module Alexa
     end
 
     def valid?
-      Rails.configuration.x.alexa.skill_ids.include?(application_id)
+      Alexa.configuration.skill_ids.include?(application_id)
     end
 
     def intent_name
