@@ -27,7 +27,7 @@ Add `config/initializers/alexa.rb` and add the following configuration
 ```ruby
     Alexa.configure do |config|
       # Location permissions type
-      config.location_permission_type = country_and_postal_code # or full_address
+      config.location_permission_type = :country_and_postal_code # or full_address
 
       # Default title used on the display cards for your skill
       config.default_card_title = "My Alexa skill"
