@@ -3,5 +3,9 @@
 <% end %>
 
 <% content_for :permissions_scope do %>
-  read::alexa:device:all:address
+  <% if Alexa.configuration.location_permission_type == :country_and_postal_code  %>
+    read::alexa:device:all:address:country_and_postal_code
+  <% else %>
+    read::alexa:device:all:address
+  <% end %>
 <% end %>
