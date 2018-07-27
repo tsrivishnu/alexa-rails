@@ -4,12 +4,7 @@ module Alexa
       if alexa_response.nil?
         render :not_found
       else
-        # render json: alexa_response
-        if alexa_response.is_a?(Alexa::Responses::Delegate)
-          render json: alexa_response
-        else
-          render partial: 'alexa/response.json', locals: { response: alexa_response }
-        end
+        render partial: 'alexa/response.json', locals: { response: alexa_response }
       end
     end
 

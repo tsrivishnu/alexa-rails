@@ -1,7 +1,12 @@
-{
-  "type": "SSML",
-  "ssml": "<%= raw render(
-    file: response.partial_path(format: :ssml),
-    locals: { response: response }
-  ).gsub(/\n/, "").gsub(/\"/, '\"') %>"
-}
+<% partial_path = response.partial_path(format: :ssml) %>
+<% if partial_path.present? %>
+  {
+    "type": "SSML",
+    "ssml": "<%= raw render(
+      file: partial_path,
+      locals: { response: response }
+    ).gsub(/\n/, "").gsub(/\"/, '\"') %>"
+  }
+<% else %>
+  null
+<% end %>

@@ -1,13 +1,12 @@
-<% content = render(
-      file: response.partial_path(format: :text),
-      locals: { response: response }
-    ) %>
-<% card_type = (content_for(:card_type) || "Simple").strip %>
+<% partial_path = response.partial_path(format: :ssml) %>
+<% if partial_path.present? %>
+  <% content = render(file: partial_path, locals: { response: response }) %>
+  <% card_type = (content_for(:card_type) || "Simple").strip %>
 
-<%= raw render(
-      partial: "alexa/output/cards/#{card_type.downcase}",
-      locals: {
-        response: response,
-        content: content
-      }
-    ) %>
+  <%= raw render(
+        partial: "alexa/output/cards/#{card_type.downcase}",
+        locals: { response: response, content: content }
+  ) %>
+<% else %>
+  null
+<% end %>
